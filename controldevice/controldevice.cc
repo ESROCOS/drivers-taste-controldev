@@ -10,7 +10,9 @@
 #include <iostream>
 #include <cstdio>
 
-static std::string jdev = "/dev/input/js2";
+#include <Context-controldevice.h>
+
+static std::string jdev = "/dev/input/js";
 static controldev::Joystick joystick;
 static asn1SccJoystickCommand cmd;
 
@@ -19,6 +21,7 @@ void controldevice_startup()
     /* Write your initialization code here,
        but do not make any call to a required interface. */
     std::cout << "[controldevice_startup] Initializing joystick driver\n";
+    jdev = jdev + std::to_string(controldevice_ctxt.device_number);
     if (!joystick.init(jdev))
     {
         std::cout << "[controldevice_startup] Could not open " << jdev << "\n";

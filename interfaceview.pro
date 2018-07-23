@@ -1,3 +1,5 @@
+isSubcomponent('interfaceview::IV','ControlDevice','others','device_number','DATA','DataView::T_UInt16','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','ControlDevice','others','device_number','Taste::FS_Default_Value','"2"','').
 isComponentType('interfaceview::FV::ControlDevice','PUBLIC','PI_update','SUBPROGRAM','NIL','').
 isComponentImplementation('interfaceview::FV::ControlDevice','PUBLIC','PI_update','others','SUBPROGRAM','NIL','others','').
 isFeature('ACCESS','interfaceview::IV','ControlDevice','PI_update','PROVIDES','SUBPROGRAM','interfaceview::FV::ControlDevice::PI_update.others','NIL','NIL','').

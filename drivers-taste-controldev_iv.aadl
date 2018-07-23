@@ -54,6 +54,10 @@ PROPERTIES
 END ControlDevice;
 
 SYSTEM IMPLEMENTATION ControlDevice.others
+SUBCOMPONENTS
+  device_number : DATA DataView::T_UInt16 {
+    Taste::FS_Default_Value => "2";
+  };
 END ControlDevice.others;
 
 END interfaceview::IV::ControlDevice;
