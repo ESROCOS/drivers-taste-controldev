@@ -1,0 +1,134 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type interfaceview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE interfaceview::IV::ControlDevice
+PUBLIC
+
+WITH interfaceview::IV::DumpCommands;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_update
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_update;
+
+SUBPROGRAM IMPLEMENTATION PI_update.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_update.others;
+
+SUBPROGRAM RI_commands
+FEATURES
+  cmd : IN PARAMETER DataView::JoystickCommand {
+    Taste::encoding => NATIVE;
+  };
+END RI_commands;
+
+SUBPROGRAM IMPLEMENTATION RI_commands.others
+END RI_commands.others;
+
+SYSTEM ControlDevice
+FEATURES
+  PI_update : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::ControlDevice::PI_update.others {
+    Taste::coordinates => "111651 70080";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 100 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "update";
+  };
+  RI_commands : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::DumpCommands::PI_commands.others {
+    Taste::coordinates => "151335 70080";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "commands";
+    Taste::labelInheritance => "false";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("controldevice.zip");
+END ControlDevice;
+
+SYSTEM IMPLEMENTATION ControlDevice.others
+END ControlDevice.others;
+
+END interfaceview::IV::ControlDevice;
+
+PACKAGE interfaceview::IV::DumpCommands
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_commands
+FEATURES
+  cmd : IN PARAMETER DataView::JoystickCommand {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_commands;
+
+SUBPROGRAM IMPLEMENTATION PI_commands.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_commands.others;
+
+SYSTEM DumpCommands
+FEATURES
+  PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::DumpCommands::PI_commands.others {
+    Taste::coordinates => "173696 70708";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "commands";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+END DumpCommands;
+
+SYSTEM IMPLEMENTATION DumpCommands.others
+END DumpCommands.others;
+
+END interfaceview::IV::DumpCommands;
+
+PACKAGE interfaceview::IV
+PUBLIC
+
+WITH interfaceview::IV::ControlDevice;
+WITH interfaceview::IV::DumpCommands;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SYSTEM interfaceview
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("drivers-taste-controldev_dv.aadl");
+END interfaceview;
+
+SYSTEM IMPLEMENTATION interfaceview.others
+SUBCOMPONENTS
+  ControlDevice : SYSTEM interfaceview::IV::ControlDevice::ControlDevice.others {
+    Taste::coordinates => "111651 52755 151335 87872";
+  };
+  DumpCommands : SYSTEM interfaceview::IV::DumpCommands::DumpCommands.others {
+    Taste::coordinates => "173696 62833 203459 82675";
+  };
+CONNECTIONS
+  DumpCommands_PI_commands_ControlDevice_RI_commands : SUBPROGRAM ACCESS DumpCommands.PI_commands -> ControlDevice.RI_commands {
+    Taste::coordinates => "151335 70080 162515 70080 162515 70708 173696 70708";
+  };
+END interfaceview.others;
+
+PROPERTIES
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("drivers-taste-controldev_dv.aadl");
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.0";
+END interfaceview::IV;
+

@@ -1,0 +1,50 @@
+----------------------------------------------------------------
+--!   ASN file generated automatically by the SARGON ASN.1 generator -
+--!  Date/time of generation: 2017/01/04 00:43:06
+----------------------------------------------------------------
+JoystickNamedCommand-Types DEFINITIONS ::=
+BEGIN
+IMPORTS T-Int32, T-UInt32, T-Int8, T-UInt8, T-Boolean  FROM TASTE-BasicTypes 
+T-Int64, T-UInt16, T-Double, T-Float, T-UInt64, T-String FROM TASTE-ExtendedTypes 
+Time FROM Time-Types;
+
+-- String for name and axes
+maxSize-JoystickString T-UInt32 ::= 25
+JoystickString ::= OCTET STRING (SIZE(0..maxSize-JoystickString))
+
+-- Max. number of axes
+axesElementsMax T-UInt32 ::= 30
+
+
+-- Definition AXESVECTOR Starts
+AxesVector  ::=
+SEQUENCE
+{
+    names       SEQUENCE (SIZE(0..axesElementsMax)) OF JoystickString,
+    elements    SEQUENCE (SIZE(0..axesElementsMax)) OF T-Double
+}
+-- Definition AXESVECTOR Ends
+
+-- Max. number of axes
+buttonElementsMax T-UInt32 ::= 30
+
+ButtonVector   ::= 
+SEQUENCE
+{
+    names       SEQUENCE (SIZE(0..buttonElementsMax)) OF JoystickString,
+    elements    SEQUENCE (SIZE(0..buttonElementsMax)) OF T-UInt8    --Switch/Key Values
+}
+
+---  Definition RAWCOMMAND Starts    
+JoystickCommand   ::= 
+SEQUENCE
+{
+    deviceIdentifier	T-String,        --Device Type identifier 
+    base-time           Time,            --The Time stamp
+    axes                AxesVector,      --NamedVector of axis
+    buttons             ButtonVector     --NamedVector of buttons
+}
+---  Definition RAWCOMMAND Ends 
+END
+
+

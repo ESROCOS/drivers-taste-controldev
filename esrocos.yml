@@ -1,0 +1,6 @@
+ASNACN_DIR: dataview/
+PROJECT_NAME: drivers-taste-controldev
+deps:
+- types/base: ''
+- types/controldev: ''
+- drivers/controldev: ''
