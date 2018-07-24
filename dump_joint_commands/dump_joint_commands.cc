@@ -14,7 +14,8 @@ void dump_joint_commands_PI_commands(const asn1SccBase_commands_Joints *IN_cmd)
     for (unsigned i = 0; i < IN_cmd->names.nCount; ++i)
     {
 	std::cout << std::string((const char*)IN_cmd->names.arr[i].arr) << ": ";
-	std::cout << IN_cmd->elements.arr[i].speed << " ";
+	std::cout << "POS: " << IN_cmd->elements.arr[i].position << " ";
+	std::cout << "SPEED: " << IN_cmd->elements.arr[i].speed << " ";
     }
     std::cout << "\n";
 }
