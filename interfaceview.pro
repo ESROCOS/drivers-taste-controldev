@@ -29,6 +29,7 @@ isComponentType('interfaceview::IV','PUBLIC','ControlDevice','SYSTEM','NIL','').
 isComponentImplementation('interfaceview::IV','PUBLIC','ControlDevice','others','SYSTEM','NIL','others','').
 isProperty('NIL','=>','interfaceview::IV','ControlDevice','NIL','NIL','Source_Language','(CPP)','').
 isProperty('NIL','=>','interfaceview::IV','ControlDevice','NIL','NIL','Taste::Active_Interfaces','any','').
+isProperty('NIL','=>','interfaceview::IV','ControlDevice','NIL','NIL','Source_Text','("controldevice.zip")','').
 isProperty('NIL','=>','interfaceview::IV','interfaceview','others','ControlDevice','Taste::coordinates','"111651 52755 151335 87872"','').
 isSubcomponent('interfaceview::IV','interfaceview','others','ControlDevice','SYSTEM','interfaceview::IV::ControlDevice.others','NIL','NIL','').
 isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::ControlDevice','').

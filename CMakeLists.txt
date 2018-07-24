@@ -42,7 +42,7 @@ esrocos_export_function("controldevice" "drivers/taste/controldev")
 #uncomment to export PKG-CONFIG-file
 esrocos_export_pkgconfig( VERSION 1.0
                           DESCRIPTION "none"
-                          REQUIRES "controldev"
+                          REQUIRES "controldev base-types types-controldev"
                           LIBS ""
                           STATIC_LIBS "" 
                           C_FLAGS ""

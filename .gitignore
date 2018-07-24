@@ -5,3 +5,4 @@ binary.c
 *.pro
 *.zip
 __*.aadl
+build

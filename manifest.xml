@@ -1,1 +1,1 @@
-<package><depend package="types/base" /><depend package="types/controldev" /><depend package="drivers/controldev" /></package>
+<package><depend package="types/base" /><depend package="types/controldev" /><depend package="drivers/controldev" /><depend package="tools/dispatchers" /></package>
