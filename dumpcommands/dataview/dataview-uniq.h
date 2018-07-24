@@ -256,6 +256,28 @@ flag asn1SccWrappers_geometry_SplineType_Encode(const asn1SccWrappers_geometry_S
 
 #define ERR_UPER_DECODE_WRAPPERS_GEOMETRY_SPLINETYPE		81  /**/
 flag asn1SccWrappers_geometry_SplineType_Decode(asn1SccWrappers_geometry_SplineType* pVal, BitStream* pBitStrm, int* pErrCode);
+
+typedef struct {
+    int nCount; 
+    
+    byte arr[25];
+} asn1SccJoystickString;
+
+flag asn1SccJoystickString_Equal(const asn1SccJoystickString* pVal1, const asn1SccJoystickString* pVal2);
+
+void asn1SccJoystickString_Initialize(asn1SccJoystickString* pVal);
+
+#define ERR_JOYSTICKSTRING		7955  /**/
+flag asn1SccJoystickString_IsConstraintValid(const asn1SccJoystickString* pVal, int* pErrCode);
+
+#define ERR_UPER_ENCODE_JOYSTICKSTRING		7956  /**/
+#define asn1SccJoystickString_REQUIRED_BYTES_FOR_ENCODING       26 
+#define asn1SccJoystickString_REQUIRED_BITS_FOR_ENCODING        205
+
+flag asn1SccJoystickString_Encode(const asn1SccJoystickString* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+
+#define ERR_UPER_DECODE_JOYSTICKSTRING		7957  /**/
+flag asn1SccJoystickString_Decode(asn1SccJoystickString* pVal, BitStream* pBitStrm, int* pErrCode);
 typedef asn1SccSint asn1SccT_Int32;
 
 
@@ -263,16 +285,16 @@ flag asn1SccT_Int32_Equal(const asn1SccT_Int32* pVal1, const asn1SccT_Int32* pVa
 
 void asn1SccT_Int32_Initialize(asn1SccT_Int32* pVal);
 
-#define ERR_T_INT32		7955  /**/
+#define ERR_T_INT32		8155  /**/
 flag asn1SccT_Int32_IsConstraintValid(const asn1SccT_Int32* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_INT32		7956  /**/
+#define ERR_UPER_ENCODE_T_INT32		8156  /**/
 #define asn1SccT_Int32_REQUIRED_BYTES_FOR_ENCODING       4 
 #define asn1SccT_Int32_REQUIRED_BITS_FOR_ENCODING        32
 
 flag asn1SccT_Int32_Encode(const asn1SccT_Int32* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_INT32		7957  /**/
+#define ERR_UPER_DECODE_T_INT32		8157  /**/
 flag asn1SccT_Int32_Decode(asn1SccT_Int32* pVal, BitStream* pBitStrm, int* pErrCode);
 typedef asn1SccUint asn1SccT_UInt32;
 
@@ -281,16 +303,16 @@ flag asn1SccT_UInt32_Equal(const asn1SccT_UInt32* pVal1, const asn1SccT_UInt32* 
 
 void asn1SccT_UInt32_Initialize(asn1SccT_UInt32* pVal);
 
-#define ERR_T_UINT32		7962  /**/
+#define ERR_T_UINT32		8162  /**/
 flag asn1SccT_UInt32_IsConstraintValid(const asn1SccT_UInt32* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_UINT32		7963  /**/
+#define ERR_UPER_ENCODE_T_UINT32		8163  /**/
 #define asn1SccT_UInt32_REQUIRED_BYTES_FOR_ENCODING       4 
 #define asn1SccT_UInt32_REQUIRED_BITS_FOR_ENCODING        32
 
 flag asn1SccT_UInt32_Encode(const asn1SccT_UInt32* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_UINT32		7964  /**/
+#define ERR_UPER_DECODE_T_UINT32		8164  /**/
 flag asn1SccT_UInt32_Decode(asn1SccT_UInt32* pVal, BitStream* pBitStrm, int* pErrCode);
 
 typedef struct {
@@ -302,21 +324,21 @@ flag asn1SccT_Time_Equal(const asn1SccT_Time* pVal1, const asn1SccT_Time* pVal2)
 
 void asn1SccT_Time_Initialize(asn1SccT_Time* pVal);
 
-#define ERR_T_TIME_SEC		8039  /**/
-#define ERR_T_TIME_NSEC		8050  /**/
+#define ERR_T_TIME_SEC		8239  /**/
+#define ERR_T_TIME_NSEC		8250  /**/
 flag asn1SccT_Time_IsConstraintValid(const asn1SccT_Time* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_TIME		8061  /**/
-#define ERR_UPER_ENCODE_T_TIME_SEC_2		8046  /**/
-#define ERR_UPER_ENCODE_T_TIME_NSEC_2		8057  /**/
+#define ERR_UPER_ENCODE_T_TIME		8261  /**/
+#define ERR_UPER_ENCODE_T_TIME_SEC_2		8246  /**/
+#define ERR_UPER_ENCODE_T_TIME_NSEC_2		8257  /**/
 #define asn1SccT_Time_REQUIRED_BYTES_FOR_ENCODING       8 
 #define asn1SccT_Time_REQUIRED_BITS_FOR_ENCODING        64
 
 flag asn1SccT_Time_Encode(const asn1SccT_Time* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_TIME		8062  /**/
-#define ERR_UPER_DECODE_T_TIME_SEC_2		8047  /**/
-#define ERR_UPER_DECODE_T_TIME_NSEC_2		8058  /**/
+#define ERR_UPER_DECODE_T_TIME		8262  /**/
+#define ERR_UPER_DECODE_T_TIME_SEC_2		8247  /**/
+#define ERR_UPER_DECODE_T_TIME_NSEC_2		8258  /**/
 flag asn1SccT_Time_Decode(asn1SccT_Time* pVal, BitStream* pBitStrm, int* pErrCode);
 typedef asn1SccT_UInt32 asn1SccDummyBase_T;
 
@@ -361,16 +383,16 @@ flag asn1SccT_Int8_Equal(const asn1SccT_Int8* pVal1, const asn1SccT_Int8* pVal2)
 
 void asn1SccT_Int8_Initialize(asn1SccT_Int8* pVal);
 
-#define ERR_T_INT8		7969  /**/
+#define ERR_T_INT8		8169  /**/
 flag asn1SccT_Int8_IsConstraintValid(const asn1SccT_Int8* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_INT8		7970  /**/
+#define ERR_UPER_ENCODE_T_INT8		8170  /**/
 #define asn1SccT_Int8_REQUIRED_BYTES_FOR_ENCODING       1 
 #define asn1SccT_Int8_REQUIRED_BITS_FOR_ENCODING        8
 
 flag asn1SccT_Int8_Encode(const asn1SccT_Int8* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_INT8		7971  /**/
+#define ERR_UPER_DECODE_T_INT8		8171  /**/
 flag asn1SccT_Int8_Decode(asn1SccT_Int8* pVal, BitStream* pBitStrm, int* pErrCode);
 typedef asn1SccUint asn1SccT_UInt8;
 
@@ -379,17 +401,65 @@ flag asn1SccT_UInt8_Equal(const asn1SccT_UInt8* pVal1, const asn1SccT_UInt8* pVa
 
 void asn1SccT_UInt8_Initialize(asn1SccT_UInt8* pVal);
 
-#define ERR_T_UINT8		7976  /**/
+#define ERR_T_UINT8		8176  /**/
 flag asn1SccT_UInt8_IsConstraintValid(const asn1SccT_UInt8* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_UINT8		7977  /**/
+#define ERR_UPER_ENCODE_T_UINT8		8177  /**/
 #define asn1SccT_UInt8_REQUIRED_BYTES_FOR_ENCODING       1 
 #define asn1SccT_UInt8_REQUIRED_BITS_FOR_ENCODING        8
 
 flag asn1SccT_UInt8_Encode(const asn1SccT_UInt8* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_UINT8		7978  /**/
+#define ERR_UPER_DECODE_T_UINT8		8178  /**/
 flag asn1SccT_UInt8_Decode(asn1SccT_UInt8* pVal, BitStream* pBitStrm, int* pErrCode);
+
+typedef struct {    int nCount; 
+    
+    asn1SccJoystickString arr[30];
+} asn1SccButtonVector_names;
+
+typedef struct {    int nCount; 
+    
+    asn1SccT_UInt8 arr[30];
+} asn1SccButtonVector_elements;
+
+typedef struct {
+    asn1SccButtonVector_names names;
+    asn1SccButtonVector_elements elements;
+} asn1SccButtonVector;
+
+flag asn1SccButtonVector_names_Equal(const asn1SccButtonVector_names* pVal1, const asn1SccButtonVector_names* pVal2);
+
+flag asn1SccButtonVector_elements_Equal(const asn1SccButtonVector_elements* pVal1, const asn1SccButtonVector_elements* pVal2);
+
+flag asn1SccButtonVector_Equal(const asn1SccButtonVector* pVal1, const asn1SccButtonVector* pVal2);
+
+void asn1SccButtonVector_names_Initialize(asn1SccButtonVector_names* pVal);
+void asn1SccButtonVector_elements_Initialize(asn1SccButtonVector_elements* pVal);
+void asn1SccButtonVector_Initialize(asn1SccButtonVector* pVal);
+
+#define ERR_BUTTONVECTOR_NAMES_ELM		8004  /**/
+#define ERR_BUTTONVECTOR_NAMES		8015  /**/
+#define ERR_BUTTONVECTOR_ELEMENTS_ELM		8022  /**/
+#define ERR_BUTTONVECTOR_ELEMENTS		8033  /**/
+flag asn1SccButtonVector_IsConstraintValid(const asn1SccButtonVector* pVal, int* pErrCode);
+
+#define ERR_UPER_ENCODE_BUTTONVECTOR		8040  /**/
+#define ERR_UPER_ENCODE_BUTTONVECTOR_NAMES		8016  /**/
+#define ERR_UPER_ENCODE_BUTTONVECTOR_NAMES_ELM_2		8011  /**/
+#define ERR_UPER_ENCODE_BUTTONVECTOR_ELEMENTS		8034  /**/
+#define ERR_UPER_ENCODE_BUTTONVECTOR_ELEMENTS_ELM_2		8029  /**/
+#define asn1SccButtonVector_REQUIRED_BYTES_FOR_ENCODING       800 
+#define asn1SccButtonVector_REQUIRED_BITS_FOR_ENCODING        6400
+
+flag asn1SccButtonVector_Encode(const asn1SccButtonVector* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+
+#define ERR_UPER_DECODE_BUTTONVECTOR		8041  /**/
+#define ERR_UPER_DECODE_BUTTONVECTOR_NAMES		8017  /**/
+#define ERR_UPER_DECODE_BUTTONVECTOR_NAMES_ELM_2		8012  /**/
+#define ERR_UPER_DECODE_BUTTONVECTOR_ELEMENTS		8035  /**/
+#define ERR_UPER_DECODE_BUTTONVECTOR_ELEMENTS_ELM_2		8030  /**/
+flag asn1SccButtonVector_Decode(asn1SccButtonVector* pVal, BitStream* pBitStrm, int* pErrCode);
 typedef flag asn1SccT_Boolean;
 
 
@@ -397,16 +467,16 @@ flag asn1SccT_Boolean_Equal(const asn1SccT_Boolean* pVal1, const asn1SccT_Boolea
 
 void asn1SccT_Boolean_Initialize(asn1SccT_Boolean* pVal);
 
-#define ERR_T_BOOLEAN		7983  /**/
+#define ERR_T_BOOLEAN		8183  /**/
 flag asn1SccT_Boolean_IsConstraintValid(const asn1SccT_Boolean* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_BOOLEAN		7984  /**/
+#define ERR_UPER_ENCODE_T_BOOLEAN		8184  /**/
 #define asn1SccT_Boolean_REQUIRED_BYTES_FOR_ENCODING       1 
 #define asn1SccT_Boolean_REQUIRED_BITS_FOR_ENCODING        1
 
 flag asn1SccT_Boolean_Encode(const asn1SccT_Boolean* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_BOOLEAN		7985  /**/
+#define ERR_UPER_DECODE_T_BOOLEAN		8185  /**/
 flag asn1SccT_Boolean_Decode(asn1SccT_Boolean* pVal, BitStream* pBitStrm, int* pErrCode);
 typedef double asn1SccT_Double;
 
@@ -415,16 +485,16 @@ flag asn1SccT_Double_Equal(const asn1SccT_Double* pVal1, const asn1SccT_Double* 
 
 void asn1SccT_Double_Initialize(asn1SccT_Double* pVal);
 
-#define ERR_T_DOUBLE		7990  /**/
+#define ERR_T_DOUBLE		8190  /**/
 flag asn1SccT_Double_IsConstraintValid(const asn1SccT_Double* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_DOUBLE		7991  /**/
+#define ERR_UPER_ENCODE_T_DOUBLE		8191  /**/
 #define asn1SccT_Double_REQUIRED_BYTES_FOR_ENCODING       13 
 #define asn1SccT_Double_REQUIRED_BITS_FOR_ENCODING        104
 
 flag asn1SccT_Double_Encode(const asn1SccT_Double* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_DOUBLE		7992  /**/
+#define ERR_UPER_DECODE_T_DOUBLE		8192  /**/
 flag asn1SccT_Double_Decode(asn1SccT_Double* pVal, BitStream* pBitStrm, int* pErrCode);
 
 typedef struct {
@@ -1594,6 +1664,54 @@ flag asn1SccStd_orogen_typekits_mtype_std_vector_base_Trajectory_Encode(const as
 #define ERR_UPER_DECODE_STD_OROGEN_TYPEKITS_MTYPE_STD_VECTOR_BASE_TRAJECTORY		524  /**/
 #define ERR_UPER_DECODE_STD_OROGEN_TYPEKITS_MTYPE_STD_VECTOR_BASE_TRAJECTORY_ELM_2		519  /**/
 flag asn1SccStd_orogen_typekits_mtype_std_vector_base_Trajectory_Decode(asn1SccStd_orogen_typekits_mtype_std_vector_base_Trajectory* pVal, BitStream* pBitStrm, int* pErrCode);
+
+typedef struct {    int nCount; 
+    
+    asn1SccJoystickString arr[30];
+} asn1SccAxesVector_names;
+
+typedef struct {    int nCount; 
+    
+    asn1SccT_Double arr[30];
+} asn1SccAxesVector_elements;
+
+typedef struct {
+    asn1SccAxesVector_names names;
+    asn1SccAxesVector_elements elements;
+} asn1SccAxesVector;
+
+flag asn1SccAxesVector_names_Equal(const asn1SccAxesVector_names* pVal1, const asn1SccAxesVector_names* pVal2);
+
+flag asn1SccAxesVector_elements_Equal(const asn1SccAxesVector_elements* pVal1, const asn1SccAxesVector_elements* pVal2);
+
+flag asn1SccAxesVector_Equal(const asn1SccAxesVector* pVal1, const asn1SccAxesVector* pVal2);
+
+void asn1SccAxesVector_names_Initialize(asn1SccAxesVector_names* pVal);
+void asn1SccAxesVector_elements_Initialize(asn1SccAxesVector_elements* pVal);
+void asn1SccAxesVector_Initialize(asn1SccAxesVector* pVal);
+
+#define ERR_AXESVECTOR_NAMES_ELM		7962  /**/
+#define ERR_AXESVECTOR_NAMES		7973  /**/
+#define ERR_AXESVECTOR_ELEMENTS_ELM		7980  /**/
+#define ERR_AXESVECTOR_ELEMENTS		7991  /**/
+flag asn1SccAxesVector_IsConstraintValid(const asn1SccAxesVector* pVal, int* pErrCode);
+
+#define ERR_UPER_ENCODE_AXESVECTOR		7998  /**/
+#define ERR_UPER_ENCODE_AXESVECTOR_NAMES		7974  /**/
+#define ERR_UPER_ENCODE_AXESVECTOR_NAMES_ELM_2		7969  /**/
+#define ERR_UPER_ENCODE_AXESVECTOR_ELEMENTS		7992  /**/
+#define ERR_UPER_ENCODE_AXESVECTOR_ELEMENTS_ELM_2		7987  /**/
+#define asn1SccAxesVector_REQUIRED_BYTES_FOR_ENCODING       1160 
+#define asn1SccAxesVector_REQUIRED_BITS_FOR_ENCODING        9280
+
+flag asn1SccAxesVector_Encode(const asn1SccAxesVector* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+
+#define ERR_UPER_DECODE_AXESVECTOR		7999  /**/
+#define ERR_UPER_DECODE_AXESVECTOR_NAMES		7975  /**/
+#define ERR_UPER_DECODE_AXESVECTOR_NAMES_ELM_2		7970  /**/
+#define ERR_UPER_DECODE_AXESVECTOR_ELEMENTS		7993  /**/
+#define ERR_UPER_DECODE_AXESVECTOR_ELEMENTS_ELM_2		7988  /**/
+flag asn1SccAxesVector_Decode(asn1SccAxesVector* pVal, BitStream* pBitStrm, int* pErrCode);
 typedef double asn1SccT_Float;
 
 
@@ -1601,16 +1719,16 @@ flag asn1SccT_Float_Equal(const asn1SccT_Float* pVal1, const asn1SccT_Float* pVa
 
 void asn1SccT_Float_Initialize(asn1SccT_Float* pVal);
 
-#define ERR_T_FLOAT		7997  /**/
+#define ERR_T_FLOAT		8197  /**/
 flag asn1SccT_Float_IsConstraintValid(const asn1SccT_Float* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_FLOAT		7998  /**/
+#define ERR_UPER_ENCODE_T_FLOAT		8198  /**/
 #define asn1SccT_Float_REQUIRED_BYTES_FOR_ENCODING       13 
 #define asn1SccT_Float_REQUIRED_BITS_FOR_ENCODING        104
 
 flag asn1SccT_Float_Encode(const asn1SccT_Float* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_FLOAT		7999  /**/
+#define ERR_UPER_DECODE_T_FLOAT		8199  /**/
 flag asn1SccT_Float_Decode(asn1SccT_Float* pVal, BitStream* pBitStrm, int* pErrCode);
 
 typedef struct {
@@ -1741,16 +1859,16 @@ flag asn1SccT_Int16_Equal(const asn1SccT_Int16* pVal1, const asn1SccT_Int16* pVa
 
 void asn1SccT_Int16_Initialize(asn1SccT_Int16* pVal);
 
-#define ERR_T_INT16		8004  /**/
+#define ERR_T_INT16		8204  /**/
 flag asn1SccT_Int16_IsConstraintValid(const asn1SccT_Int16* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_INT16		8005  /**/
+#define ERR_UPER_ENCODE_T_INT16		8205  /**/
 #define asn1SccT_Int16_REQUIRED_BYTES_FOR_ENCODING       2 
 #define asn1SccT_Int16_REQUIRED_BITS_FOR_ENCODING        16
 
 flag asn1SccT_Int16_Encode(const asn1SccT_Int16* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_INT16		8006  /**/
+#define ERR_UPER_DECODE_T_INT16		8206  /**/
 flag asn1SccT_Int16_Decode(asn1SccT_Int16* pVal, BitStream* pBitStrm, int* pErrCode);
 typedef asn1SccUint asn1SccT_UInt16;
 
@@ -1759,16 +1877,16 @@ flag asn1SccT_UInt16_Equal(const asn1SccT_UInt16* pVal1, const asn1SccT_UInt16* 
 
 void asn1SccT_UInt16_Initialize(asn1SccT_UInt16* pVal);
 
-#define ERR_T_UINT16		8011  /**/
+#define ERR_T_UINT16		8211  /**/
 flag asn1SccT_UInt16_IsConstraintValid(const asn1SccT_UInt16* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_UINT16		8012  /**/
+#define ERR_UPER_ENCODE_T_UINT16		8212  /**/
 #define asn1SccT_UInt16_REQUIRED_BYTES_FOR_ENCODING       2 
 #define asn1SccT_UInt16_REQUIRED_BITS_FOR_ENCODING        16
 
 flag asn1SccT_UInt16_Encode(const asn1SccT_UInt16* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_UINT16		8013  /**/
+#define ERR_UPER_DECODE_T_UINT16		8213  /**/
 flag asn1SccT_UInt16_Decode(asn1SccT_UInt16* pVal, BitStream* pBitStrm, int* pErrCode);
 
 typedef struct {
@@ -1803,16 +1921,16 @@ flag asn1SccT_UInt64_Equal(const asn1SccT_UInt64* pVal1, const asn1SccT_UInt64* 
 
 void asn1SccT_UInt64_Initialize(asn1SccT_UInt64* pVal);
 
-#define ERR_T_UINT64		8018  /**/
+#define ERR_T_UINT64		8218  /**/
 flag asn1SccT_UInt64_IsConstraintValid(const asn1SccT_UInt64* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_UINT64		8019  /**/
+#define ERR_UPER_ENCODE_T_UINT64		8219  /**/
 #define asn1SccT_UInt64_REQUIRED_BYTES_FOR_ENCODING       8 
 #define asn1SccT_UInt64_REQUIRED_BITS_FOR_ENCODING        63
 
 flag asn1SccT_UInt64_Encode(const asn1SccT_UInt64* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_UINT64		8020  /**/
+#define ERR_UPER_DECODE_T_UINT64		8220  /**/
 flag asn1SccT_UInt64_Decode(asn1SccT_UInt64* pVal, BitStream* pBitStrm, int* pErrCode);
 typedef asn1SccSint asn1SccT_Int64;
 
@@ -1821,16 +1939,16 @@ flag asn1SccT_Int64_Equal(const asn1SccT_Int64* pVal1, const asn1SccT_Int64* pVa
 
 void asn1SccT_Int64_Initialize(asn1SccT_Int64* pVal);
 
-#define ERR_T_INT64		8025  /**/
+#define ERR_T_INT64		8225  /**/
 flag asn1SccT_Int64_IsConstraintValid(const asn1SccT_Int64* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_INT64		8026  /**/
+#define ERR_UPER_ENCODE_T_INT64		8226  /**/
 #define asn1SccT_Int64_REQUIRED_BYTES_FOR_ENCODING       8 
 #define asn1SccT_Int64_REQUIRED_BITS_FOR_ENCODING        64
 
 flag asn1SccT_Int64_Encode(const asn1SccT_Int64* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_INT64		8027  /**/
+#define ERR_UPER_DECODE_T_INT64		8227  /**/
 flag asn1SccT_Int64_Decode(asn1SccT_Int64* pVal, BitStream* pBitStrm, int* pErrCode);
 
 typedef struct {
@@ -2917,16 +3035,16 @@ flag asn1SccT_String_Equal(const asn1SccT_String* pVal1, const asn1SccT_String* 
 
 void asn1SccT_String_Initialize(asn1SccT_String* pVal);
 
-#define ERR_T_STRING		8032  /**/
+#define ERR_T_STRING		8232  /**/
 flag asn1SccT_String_IsConstraintValid(const asn1SccT_String* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_T_STRING		8033  /**/
+#define ERR_UPER_ENCODE_T_STRING		8233  /**/
 #define asn1SccT_String_REQUIRED_BYTES_FOR_ENCODING       201 
 #define asn1SccT_String_REQUIRED_BITS_FOR_ENCODING        1608
 
 flag asn1SccT_String_Encode(const asn1SccT_String* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_T_STRING		8034  /**/
+#define ERR_UPER_DECODE_T_STRING		8234  /**/
 flag asn1SccT_String_Decode(asn1SccT_String* pVal, BitStream* pBitStrm, int* pErrCode);
 
 typedef struct {    int nCount; 
@@ -4024,124 +4142,6 @@ flag asn1SccBase_samples_Wrenches_m_Encode(const asn1SccBase_samples_Wrenches_m*
 flag asn1SccBase_samples_Wrenches_m_Decode(asn1SccBase_samples_Wrenches_m* pVal, BitStream* pBitStrm, int* pErrCode);
 
 typedef struct {
-    int nCount; 
-    
-    byte arr[25];
-} asn1SccJoystickString;
-
-flag asn1SccJoystickString_Equal(const asn1SccJoystickString* pVal1, const asn1SccJoystickString* pVal2);
-
-void asn1SccJoystickString_Initialize(asn1SccJoystickString* pVal);
-
-#define ERR_JOYSTICKSTRING		8067  /**/
-flag asn1SccJoystickString_IsConstraintValid(const asn1SccJoystickString* pVal, int* pErrCode);
-
-#define ERR_UPER_ENCODE_JOYSTICKSTRING		8068  /**/
-#define asn1SccJoystickString_REQUIRED_BYTES_FOR_ENCODING       26 
-#define asn1SccJoystickString_REQUIRED_BITS_FOR_ENCODING        205
-
-flag asn1SccJoystickString_Encode(const asn1SccJoystickString* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-
-#define ERR_UPER_DECODE_JOYSTICKSTRING		8069  /**/
-flag asn1SccJoystickString_Decode(asn1SccJoystickString* pVal, BitStream* pBitStrm, int* pErrCode);
-
-typedef struct {    int nCount; 
-    
-    asn1SccJoystickString arr[30];
-} asn1SccAxesVector_names;
-
-typedef struct {    int nCount; 
-    
-    asn1SccT_Double arr[30];
-} asn1SccAxesVector_elements;
-
-typedef struct {
-    asn1SccAxesVector_names names;
-    asn1SccAxesVector_elements elements;
-} asn1SccAxesVector;
-
-flag asn1SccAxesVector_names_Equal(const asn1SccAxesVector_names* pVal1, const asn1SccAxesVector_names* pVal2);
-
-flag asn1SccAxesVector_elements_Equal(const asn1SccAxesVector_elements* pVal1, const asn1SccAxesVector_elements* pVal2);
-
-flag asn1SccAxesVector_Equal(const asn1SccAxesVector* pVal1, const asn1SccAxesVector* pVal2);
-
-void asn1SccAxesVector_names_Initialize(asn1SccAxesVector_names* pVal);
-void asn1SccAxesVector_elements_Initialize(asn1SccAxesVector_elements* pVal);
-void asn1SccAxesVector_Initialize(asn1SccAxesVector* pVal);
-
-#define ERR_AXESVECTOR_NAMES_ELM		8074  /**/
-#define ERR_AXESVECTOR_NAMES		8085  /**/
-#define ERR_AXESVECTOR_ELEMENTS_ELM		8092  /**/
-#define ERR_AXESVECTOR_ELEMENTS		8103  /**/
-flag asn1SccAxesVector_IsConstraintValid(const asn1SccAxesVector* pVal, int* pErrCode);
-
-#define ERR_UPER_ENCODE_AXESVECTOR		8110  /**/
-#define ERR_UPER_ENCODE_AXESVECTOR_NAMES		8086  /**/
-#define ERR_UPER_ENCODE_AXESVECTOR_NAMES_ELM_2		8081  /**/
-#define ERR_UPER_ENCODE_AXESVECTOR_ELEMENTS		8104  /**/
-#define ERR_UPER_ENCODE_AXESVECTOR_ELEMENTS_ELM_2		8099  /**/
-#define asn1SccAxesVector_REQUIRED_BYTES_FOR_ENCODING       1160 
-#define asn1SccAxesVector_REQUIRED_BITS_FOR_ENCODING        9280
-
-flag asn1SccAxesVector_Encode(const asn1SccAxesVector* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-
-#define ERR_UPER_DECODE_AXESVECTOR		8111  /**/
-#define ERR_UPER_DECODE_AXESVECTOR_NAMES		8087  /**/
-#define ERR_UPER_DECODE_AXESVECTOR_NAMES_ELM_2		8082  /**/
-#define ERR_UPER_DECODE_AXESVECTOR_ELEMENTS		8105  /**/
-#define ERR_UPER_DECODE_AXESVECTOR_ELEMENTS_ELM_2		8100  /**/
-flag asn1SccAxesVector_Decode(asn1SccAxesVector* pVal, BitStream* pBitStrm, int* pErrCode);
-
-typedef struct {    int nCount; 
-    
-    asn1SccJoystickString arr[30];
-} asn1SccButtonVector_names;
-
-typedef struct {    int nCount; 
-    
-    asn1SccT_UInt8 arr[30];
-} asn1SccButtonVector_elements;
-
-typedef struct {
-    asn1SccButtonVector_names names;
-    asn1SccButtonVector_elements elements;
-} asn1SccButtonVector;
-
-flag asn1SccButtonVector_names_Equal(const asn1SccButtonVector_names* pVal1, const asn1SccButtonVector_names* pVal2);
-
-flag asn1SccButtonVector_elements_Equal(const asn1SccButtonVector_elements* pVal1, const asn1SccButtonVector_elements* pVal2);
-
-flag asn1SccButtonVector_Equal(const asn1SccButtonVector* pVal1, const asn1SccButtonVector* pVal2);
-
-void asn1SccButtonVector_names_Initialize(asn1SccButtonVector_names* pVal);
-void asn1SccButtonVector_elements_Initialize(asn1SccButtonVector_elements* pVal);
-void asn1SccButtonVector_Initialize(asn1SccButtonVector* pVal);
-
-#define ERR_BUTTONVECTOR_NAMES_ELM		8116  /**/
-#define ERR_BUTTONVECTOR_NAMES		8127  /**/
-#define ERR_BUTTONVECTOR_ELEMENTS_ELM		8134  /**/
-#define ERR_BUTTONVECTOR_ELEMENTS		8145  /**/
-flag asn1SccButtonVector_IsConstraintValid(const asn1SccButtonVector* pVal, int* pErrCode);
-
-#define ERR_UPER_ENCODE_BUTTONVECTOR		8152  /**/
-#define ERR_UPER_ENCODE_BUTTONVECTOR_NAMES		8128  /**/
-#define ERR_UPER_ENCODE_BUTTONVECTOR_NAMES_ELM_2		8123  /**/
-#define ERR_UPER_ENCODE_BUTTONVECTOR_ELEMENTS		8146  /**/
-#define ERR_UPER_ENCODE_BUTTONVECTOR_ELEMENTS_ELM_2		8141  /**/
-#define asn1SccButtonVector_REQUIRED_BYTES_FOR_ENCODING       800 
-#define asn1SccButtonVector_REQUIRED_BITS_FOR_ENCODING        6400
-
-flag asn1SccButtonVector_Encode(const asn1SccButtonVector* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-
-#define ERR_UPER_DECODE_BUTTONVECTOR		8153  /**/
-#define ERR_UPER_DECODE_BUTTONVECTOR_NAMES		8129  /**/
-#define ERR_UPER_DECODE_BUTTONVECTOR_NAMES_ELM_2		8124  /**/
-#define ERR_UPER_DECODE_BUTTONVECTOR_ELEMENTS		8147  /**/
-#define ERR_UPER_DECODE_BUTTONVECTOR_ELEMENTS_ELM_2		8142  /**/
-flag asn1SccButtonVector_Decode(asn1SccButtonVector* pVal, BitStream* pBitStrm, int* pErrCode);
-
-typedef struct {
     asn1SccT_String deviceIdentifier;
     asn1SccAxesVector axes;
     asn1SccButtonVector buttons;
@@ -4151,36 +4151,36 @@ flag asn1SccJoystickCommand_Equal(const asn1SccJoystickCommand* pVal1, const asn
 
 void asn1SccJoystickCommand_Initialize(asn1SccJoystickCommand* pVal);
 
-#define ERR_JOYSTICKCOMMAND_DEVICEIDENTIFIER		8158  /**/
-#define ERR_JOYSTICKCOMMAND_AXES_NAMES_ELM		8169  /**/
-#define ERR_JOYSTICKCOMMAND_AXES_NAMES		8180  /**/
-#define ERR_JOYSTICKCOMMAND_AXES_ELEMENTS_ELM		8187  /**/
-#define ERR_JOYSTICKCOMMAND_AXES_ELEMENTS		8198  /**/
-#define ERR_JOYSTICKCOMMAND_BUTTONS_NAMES_ELM		8215  /**/
-#define ERR_JOYSTICKCOMMAND_BUTTONS_NAMES		8226  /**/
-#define ERR_JOYSTICKCOMMAND_BUTTONS_ELEMENTS_ELM		8233  /**/
-#define ERR_JOYSTICKCOMMAND_BUTTONS_ELEMENTS		8244  /**/
+#define ERR_JOYSTICKCOMMAND_DEVICEIDENTIFIER		8046  /**/
+#define ERR_JOYSTICKCOMMAND_AXES_NAMES_ELM		8057  /**/
+#define ERR_JOYSTICKCOMMAND_AXES_NAMES		8068  /**/
+#define ERR_JOYSTICKCOMMAND_AXES_ELEMENTS_ELM		8075  /**/
+#define ERR_JOYSTICKCOMMAND_AXES_ELEMENTS		8086  /**/
+#define ERR_JOYSTICKCOMMAND_BUTTONS_NAMES_ELM		8103  /**/
+#define ERR_JOYSTICKCOMMAND_BUTTONS_NAMES		8114  /**/
+#define ERR_JOYSTICKCOMMAND_BUTTONS_ELEMENTS_ELM		8121  /**/
+#define ERR_JOYSTICKCOMMAND_BUTTONS_ELEMENTS		8132  /**/
 flag asn1SccJoystickCommand_IsConstraintValid(const asn1SccJoystickCommand* pVal, int* pErrCode);
 
-#define ERR_UPER_ENCODE_JOYSTICKCOMMAND		8261  /**/
-#define ERR_UPER_ENCODE_JOYSTICKCOMMAND_DEVICEIDENTIFIER_2		8165  /**/
-#define ERR_UPER_ENCODE_JOYSTICKCOMMAND_AXES_2		8211  /**/
-#define ERR_UPER_ENCODE_JOYSTICKCOMMAND_BUTTONS_2		8257  /**/
+#define ERR_UPER_ENCODE_JOYSTICKCOMMAND		8149  /**/
+#define ERR_UPER_ENCODE_JOYSTICKCOMMAND_DEVICEIDENTIFIER_2		8053  /**/
+#define ERR_UPER_ENCODE_JOYSTICKCOMMAND_AXES_2		8099  /**/
+#define ERR_UPER_ENCODE_JOYSTICKCOMMAND_BUTTONS_2		8145  /**/
 #define asn1SccJoystickCommand_REQUIRED_BYTES_FOR_ENCODING       2161 
 #define asn1SccJoystickCommand_REQUIRED_BITS_FOR_ENCODING        17288
 
 flag asn1SccJoystickCommand_Encode(const asn1SccJoystickCommand* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
-#define ERR_UPER_DECODE_JOYSTICKCOMMAND		8262  /**/
-#define ERR_UPER_DECODE_JOYSTICKCOMMAND_DEVICEIDENTIFIER_2		8166  /**/
-#define ERR_UPER_DECODE_JOYSTICKCOMMAND_AXES_2		8212  /**/
-#define ERR_UPER_DECODE_JOYSTICKCOMMAND_BUTTONS_2		8258  /**/
+#define ERR_UPER_DECODE_JOYSTICKCOMMAND		8150  /**/
+#define ERR_UPER_DECODE_JOYSTICKCOMMAND_DEVICEIDENTIFIER_2		8054  /**/
+#define ERR_UPER_DECODE_JOYSTICKCOMMAND_AXES_2		8100  /**/
+#define ERR_UPER_DECODE_JOYSTICKCOMMAND_BUTTONS_2		8146  /**/
 flag asn1SccJoystickCommand_Decode(asn1SccJoystickCommand* pVal, BitStream* pBitStrm, int* pErrCode);
 
-extern const asn1SccT_UInt32 numT_String;
 extern const asn1SccT_UInt32 maxSize_JoystickString;
 extern const asn1SccT_UInt32 axesElementsMax;
 extern const asn1SccT_UInt32 buttonElementsMax;
+extern const asn1SccT_UInt32 numT_String;
 extern const asn1SccT_UInt32 numBase_JointTrajectory;
 extern const asn1SccT_UInt32 numStd_orogen_typekits_mtype_std_vector_base_JointTransform;
 extern const asn1SccT_UInt32 numStd_orogen_typekits_mtype_std_vector_base_Waypoint;

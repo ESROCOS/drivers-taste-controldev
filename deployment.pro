@@ -1,10 +1,19 @@
 isImportDeclaration('deploymentview::DV','PUBLIC','interfaceview::IV','').
-isSubcomponent('deploymentview::DV','Node1','others','IV_ControlDevice','SYSTEM','interfaceview::IV::ControlDevice.others','NIL','NIL','').
-isProperty('NIL','=>','deploymentview::DV','Node1','others','IV_ControlDevice','Taste::FunctionName','"ControlDevice"','').
-isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','IV_ControlDevice','Taste::APLC_Binding','(reference (x86_partition))','').
-isSubcomponent('deploymentview::DV','Node1','others','IV_DumpCommands','SYSTEM','interfaceview::IV::DumpCommands.others','NIL','NIL','').
-isProperty('NIL','=>','deploymentview::DV','Node1','others','IV_DumpCommands','Taste::FunctionName','"DumpCommands"','').
-isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','IV_DumpCommands','Taste::APLC_Binding','(reference (x86_partition))','').
+isSubcomponent('deploymentview::DV','Node1','others','IV_controldevice','SYSTEM','interfaceview::IV::controldevice.others','NIL','NIL','').
+isProperty('NIL','=>','deploymentview::DV','Node1','others','IV_controldevice','Taste::FunctionName','"controldevice"','').
+isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','IV_controldevice','Taste::APLC_Binding','(reference (x86_partition))','').
+isSubcomponent('deploymentview::DV','Node1','others','IV_dumpcommands','SYSTEM','interfaceview::IV::dumpcommands.others','NIL','NIL','').
+isProperty('NIL','=>','deploymentview::DV','Node1','others','IV_dumpcommands','Taste::FunctionName','"dumpcommands"','').
+isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','IV_dumpcommands','Taste::APLC_Binding','(reference (x86_partition))','').
+isSubcomponent('deploymentview::DV','Node1','others','IV_joystick_2_motion_command','SYSTEM','interfaceview::IV::joystick_2_motion_command.others','NIL','NIL','').
+isProperty('NIL','=>','deploymentview::DV','Node1','others','IV_joystick_2_motion_command','Taste::FunctionName','"joystick_2_motion_command"','').
+isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','IV_joystick_2_motion_command','Taste::APLC_Binding','(reference (x86_partition))','').
+isSubcomponent('deploymentview::DV','Node1','others','IV_joystick_2_joint_commands','SYSTEM','interfaceview::IV::joystick_2_joint_commands.others','NIL','NIL','').
+isProperty('NIL','=>','deploymentview::DV','Node1','others','IV_joystick_2_joint_commands','Taste::FunctionName','"joystick_2_joint_commands"','').
+isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','IV_joystick_2_joint_commands','Taste::APLC_Binding','(reference (x86_partition))','').
+isSubcomponent('deploymentview::DV','Node1','others','IV_command_dispatch','SYSTEM','interfaceview::IV::command_dispatch.others','NIL','NIL','').
+isProperty('NIL','=>','deploymentview::DV','Node1','others','IV_command_dispatch','Taste::FunctionName','"command_dispatch"','').
+isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','IV_command_dispatch','Taste::APLC_Binding','(reference (x86_partition))','').
 isComponentType('deploymentview::DV::Node1','PUBLIC','x86_partition','PROCESS','NIL','').
 isComponentImplementation('deploymentview::DV::Node1','PUBLIC','x86_partition','others','PROCESS','NIL','others','').
 isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','x86_partition','Actual_Processor_Binding','(reference (x86_linux))','').
@@ -33,7 +42,7 @@ isImportDeclaration('deploymentview::DV','PUBLIC','Deployment','').
 isProperty('NIL','=>','deploymentview::DV','NIL','NIL','NIL','Taste::coordinates','"0 0 297000 210000"','').
 isProperty('NIL','=>','deploymentview::DV','NIL','NIL','NIL','Taste::version','"1.3"','').
 isProperty('NIL','=>','deploymentview::DV','NIL','NIL','NIL','Taste::interfaceView','"drivers-taste-controldev_iv.aadl"','').
-isProperty('NIL','=>','deploymentview::DV','NIL','NIL','NIL','Taste::HWLibraries','("")','').
+isProperty('NIL','=>','deploymentview::DV','NIL','NIL','NIL','Taste::HWLibraries','("../../../../tool-inst/share/ocarina/AADLv2/ocarina_components.aadl")','').
 isComponentType('deploymentview::DV','PUBLIC','deploymentview','SYSTEM','NIL','').
 isComponentImplementation('deploymentview::DV','PUBLIC','deploymentview','others','SYSTEM','NIL','others','').
 isImportDeclaration('deploymentview::DV','PUBLIC','interfaceview::IV','').

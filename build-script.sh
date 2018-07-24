@@ -69,6 +69,12 @@ cd "$SKELS" && rm -f controldevice.zip && zip controldevice controldevice/* && c
 
 cd "$SKELS" && rm -f dumpcommands.zip && zip dumpcommands dumpcommands/* && cd $OLDPWD
 
+cd "$SKELS" && rm -f joystick_2_motion_command.zip && zip joystick_2_motion_command joystick_2_motion_command/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f joystick_2_joint_commands.zip && zip joystick_2_joint_commands joystick_2_joint_commands/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f command_dispatch.zip && zip command_dispatch command_dispatch/* && cd $OLDPWD
+
 [ ! -z "$CLEANUP" ] && rm -rf binary*
 
 if [ -f ConcurrencyView.pro ]
@@ -111,6 +117,9 @@ cd "$CWD" && assert-builder-ocarina.py \
 	-o "$OUTPUTDIR" \
 	--subCPP controldevice:"$SKELS"/controldevice.zip \
 	--subCPP dumpcommands:"$SKELS"/dumpcommands.zip \
+	--subCPP joystick_2_motion_command:"$SKELS"/joystick_2_motion_command.zip \
+	--subCPP joystick_2_joint_commands:"$SKELS"/joystick_2_joint_commands.zip \
+	--subCPP command_dispatch:"$SKELS"/command_dispatch.zip \
 	$ORCHESTRATOR_OPTIONS
 
 if [ -f user_init_last.sh ]

@@ -15,6 +15,10 @@ void dumpcommands_startup();
 
 void dumpcommands_PI_commands(const asn1SccJoystickCommand *);
 
+void dumpcommands_PI_motion_commands(const asn1SccBase_commands_Motion2D *);
+
+void dumpcommands_PI_joint_commands(const asn1SccBase_commands_Joints *);
+
 #ifdef __cplusplus
 }
 #endif

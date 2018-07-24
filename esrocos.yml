@@ -4,4 +4,3 @@ deps:
 - types/base: ''
 - types/controldev: ''
 - drivers/controldev: ''
-- tools/dispatchers: ''

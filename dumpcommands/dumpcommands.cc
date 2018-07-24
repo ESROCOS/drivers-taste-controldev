@@ -26,3 +26,10 @@ void dumpcommands_PI_commands(const asn1SccJoystickCommand *IN_cmd)
     std::cout << std::endl;
 }
 
+void dumpcommands_PI_motion_commands(const asn1SccBase_commands_Motion2D *IN_cmd)
+{
+}
+
+void dumpcommands_PI_joint_commands(const asn1SccBase_commands_Joints *IN_cmd)
+{
+}
