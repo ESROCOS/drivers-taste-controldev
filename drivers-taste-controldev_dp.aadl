@@ -23,10 +23,12 @@ PACKAGE deploymentview::DV
 PUBLIC
 
 WITH interfaceview::IV::controldevice;
-WITH interfaceview::IV::dumpcommands;
 WITH interfaceview::IV::joystick_2_motion_command;
 WITH interfaceview::IV::joystick_2_joint_commands;
 WITH interfaceview::IV::command_dispatch;
+WITH interfaceview::IV::dumpcommands;
+WITH interfaceview::IV::dump_motion_commands;
+WITH interfaceview::IV::dump_joint_commands;
 WITH ocarina_processors_x86;
 WITH deploymentview::DV::Node1;
 WITH Taste;
@@ -41,9 +43,6 @@ SUBCOMPONENTS
   IV_controldevice : SYSTEM interfaceview::IV::controldevice::controldevice.others {
     Taste::FunctionName => "controldevice";
   };
-  IV_dumpcommands : SYSTEM interfaceview::IV::dumpcommands::dumpcommands.others {
-    Taste::FunctionName => "dumpcommands";
-  };
   IV_joystick_2_motion_command : SYSTEM interfaceview::IV::joystick_2_motion_command::joystick_2_motion_command.others {
     Taste::FunctionName => "joystick_2_motion_command";
   };
@@ -52,6 +51,15 @@ SUBCOMPONENTS
   };
   IV_command_dispatch : SYSTEM interfaceview::IV::command_dispatch::command_dispatch.others {
     Taste::FunctionName => "command_dispatch";
+  };
+  IV_dumpcommands : SYSTEM interfaceview::IV::dumpcommands::dumpcommands.others {
+    Taste::FunctionName => "dumpcommands";
+  };
+  IV_dump_motion_commands : SYSTEM interfaceview::IV::dump_motion_commands::dump_motion_commands.others {
+    Taste::FunctionName => "dump_motion_commands";
+  };
+  IV_dump_joint_commands : SYSTEM interfaceview::IV::dump_joint_commands::dump_joint_commands.others {
+    Taste::FunctionName => "dump_joint_commands";
   };
   x86_partition : PROCESS deploymentview::DV::Node1::x86_partition.others {
     Taste::coordinates => "124948 73120 161029 103831";
@@ -62,10 +70,12 @@ SUBCOMPONENTS
   };
 PROPERTIES
   Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_controldevice;
-  Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_dumpcommands;
   Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_joystick_2_motion_command;
   Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_joystick_2_joint_commands;
   Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_command_dispatch;
+  Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_dumpcommands;
+  Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_dump_motion_commands;
+  Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_dump_joint_commands;
   Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO x86_partition;
 END Node1.others;
 

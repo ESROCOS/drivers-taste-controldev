@@ -35,7 +35,7 @@ void controldevice_PI_update()
     /* Write your code here! */
     if (joystick.updateState())
     {
-	std::cout << "[controldevice_PI_update] joystick state updated\n";
+	//std::cout << "[controldevice_PI_update] joystick state updated\n";
         cmd.deviceIdentifier.nCount = snprintf((char*)cmd.deviceIdentifier.arr, maxSize_JoystickString, joystick.getName().c_str());
 	unsigned i;
 	for (i = 0; i < joystick.getNrAxis(); ++i)

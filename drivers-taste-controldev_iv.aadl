@@ -62,92 +62,10 @@ END controldevice.others;
 
 END interfaceview::IV::controldevice;
 
-PACKAGE interfaceview::IV::dumpcommands
-PUBLIC
-
-WITH Taste;
-WITH DataView;
-WITH TASTE_IV_Properties;
-SUBPROGRAM PI_commands
-FEATURES
-  cmd : IN PARAMETER DataView::JoystickCommand {
-    Taste::encoding => NATIVE;
-  };
-PROPERTIES
-  Taste::Associated_Queue_Size => 1;
-END PI_commands;
-
-SUBPROGRAM IMPLEMENTATION PI_commands.others
-PROPERTIES
-  Compute_Execution_Time => 0 ms .. 0 ms;
-END PI_commands.others;
-
-SUBPROGRAM PI_motion_commands
-FEATURES
-  cmd : IN PARAMETER DataView::Base_commands_Motion2D {
-    Taste::encoding => NATIVE;
-  };
-PROPERTIES
-  Taste::Associated_Queue_Size => 1;
-END PI_motion_commands;
-
-SUBPROGRAM IMPLEMENTATION PI_motion_commands.others
-PROPERTIES
-  Compute_Execution_Time => 0 ms .. 0 ms;
-END PI_motion_commands.others;
-
-SUBPROGRAM PI_joint_commands
-FEATURES
-  cmd : IN PARAMETER DataView::Base_commands_Joints {
-    Taste::encoding => NATIVE;
-  };
-PROPERTIES
-  Taste::Associated_Queue_Size => 1;
-END PI_joint_commands;
-
-SUBPROGRAM IMPLEMENTATION PI_joint_commands.others
-PROPERTIES
-  Compute_Execution_Time => 0 ms .. 0 ms;
-END PI_joint_commands.others;
-
-SYSTEM dumpcommands
-FEATURES
-  PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::dumpcommands::PI_commands.others {
-    Taste::coordinates => "229671 66528";
-    Taste::RCMoperationKind => sporadic;
-    Taste::RCMperiod => 0 ms;
-    Taste::Deadline => 0 ms;
-    Taste::InterfaceName => "commands";
-  };
-  PI_motion_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::dumpcommands::PI_motion_commands.others {
-    Taste::coordinates => "229671 60539";
-    Taste::RCMoperationKind => sporadic;
-    Taste::RCMperiod => 0 ms;
-    Taste::Deadline => 0 ms;
-    Taste::InterfaceName => "motion_commands";
-  };
-  PI_joint_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::dumpcommands::PI_joint_commands.others {
-    Taste::coordinates => "229671 82514";
-    Taste::RCMoperationKind => sporadic;
-    Taste::RCMperiod => 0 ms;
-    Taste::Deadline => 0 ms;
-    Taste::InterfaceName => "joint_commands";
-  };
-PROPERTIES
-  Source_Language => (CPP);
-  Taste::Active_Interfaces => any;
-  Source_Text => ("dumpcommands.zip");
-END dumpcommands;
-
-SYSTEM IMPLEMENTATION dumpcommands.others
-END dumpcommands.others;
-
-END interfaceview::IV::dumpcommands;
-
 PACKAGE interfaceview::IV::joystick_2_motion_command
 PUBLIC
 
-WITH interfaceview::IV::dumpcommands;
+WITH interfaceview::IV::dump_motion_commands;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
@@ -167,7 +85,7 @@ END PI_commands.others;
 
 SUBPROGRAM RI_motion_commands
 FEATURES
-  cmd : IN PARAMETER DataView::Base_commands_Motion2D {
+  commands : IN PARAMETER DataView::Base_commands_Motion2D {
     Taste::encoding => NATIVE;
   };
 END RI_motion_commands;
@@ -184,7 +102,7 @@ FEATURES
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "commands";
   };
-  RI_motion_commands : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::dumpcommands::PI_motion_commands.others {
+  RI_motion_commands : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::dump_motion_commands::PI_commands.others {
     Taste::coordinates => "183951 22441";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "motion_commands";
@@ -211,7 +129,7 @@ END interfaceview::IV::joystick_2_motion_command;
 PACKAGE interfaceview::IV::joystick_2_joint_commands
 PUBLIC
 
-WITH interfaceview::IV::dumpcommands;
+WITH interfaceview::IV::dump_joint_commands;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
@@ -242,14 +160,14 @@ END RI_joint_commands.others;
 SYSTEM joystick_2_joint_commands
 FEATURES
   PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::joystick_2_joint_commands::PI_commands.others {
-    Taste::coordinates => "173905 112815";
+    Taste::coordinates => "164394 121595";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "commands";
   };
-  RI_joint_commands : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::dumpcommands::PI_joint_commands.others {
-    Taste::coordinates => "207920 116354";
+  RI_joint_commands : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::dump_joint_commands::PI_commands.others {
+    Taste::coordinates => "198409 125134";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "joint_commands";
     Taste::labelInheritance => "false";
@@ -359,14 +277,136 @@ END command_dispatch.others;
 
 END interfaceview::IV::command_dispatch;
 
+PACKAGE interfaceview::IV::dumpcommands
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_commands
+FEATURES
+  cmd : IN PARAMETER DataView::JoystickCommand {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_commands;
+
+SUBPROGRAM IMPLEMENTATION PI_commands.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_commands.others;
+
+SYSTEM dumpcommands
+FEATURES
+  PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::dumpcommands::PI_commands.others {
+    Taste::coordinates => "215100 75862";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "commands";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("dumpcommands.zip");
+END dumpcommands;
+
+SYSTEM IMPLEMENTATION dumpcommands.others
+END dumpcommands.others;
+
+END interfaceview::IV::dumpcommands;
+
+PACKAGE interfaceview::IV::dump_motion_commands
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_commands
+FEATURES
+  commands : IN PARAMETER DataView::Base_commands_Motion2D {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_commands;
+
+SUBPROGRAM IMPLEMENTATION PI_commands.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_commands.others;
+
+SYSTEM dump_motion_commands
+FEATURES
+  PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::dump_motion_commands::PI_commands.others {
+    Taste::coordinates => "216198 23549";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "commands";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("dump_motion_commands.zip");
+END dump_motion_commands;
+
+SYSTEM IMPLEMENTATION dump_motion_commands.others
+END dump_motion_commands.others;
+
+END interfaceview::IV::dump_motion_commands;
+
+PACKAGE interfaceview::IV::dump_joint_commands
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_commands
+FEATURES
+  cmd : IN PARAMETER DataView::Base_commands_Joints {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_commands;
+
+SUBPROGRAM IMPLEMENTATION PI_commands.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_commands.others;
+
+SYSTEM dump_joint_commands
+FEATURES
+  PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::dump_joint_commands::PI_commands.others {
+    Taste::coordinates => "222783 123786";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "commands";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("dump_joint_commands.zip");
+END dump_joint_commands;
+
+SYSTEM IMPLEMENTATION dump_joint_commands.others
+END dump_joint_commands.others;
+
+END interfaceview::IV::dump_joint_commands;
+
 PACKAGE interfaceview::IV
 PUBLIC
 
 WITH interfaceview::IV::controldevice;
-WITH interfaceview::IV::dumpcommands;
 WITH interfaceview::IV::joystick_2_motion_command;
 WITH interfaceview::IV::joystick_2_joint_commands;
 WITH interfaceview::IV::command_dispatch;
+WITH interfaceview::IV::dumpcommands;
+WITH interfaceview::IV::dump_motion_commands;
+WITH interfaceview::IV::dump_joint_commands;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
@@ -381,36 +421,42 @@ SUBCOMPONENTS
   controldevice : SYSTEM interfaceview::IV::controldevice::controldevice.others {
     Taste::coordinates => "15286 52200 54970 87317";
   };
-  dumpcommands : SYSTEM interfaceview::IV::dumpcommands::dumpcommands.others {
-    Taste::coordinates => "229671 57441 264215 87987";
-  };
   joystick_2_motion_command : SYSTEM interfaceview::IV::joystick_2_motion_command::joystick_2_motion_command.others {
     Taste::coordinates => "148046 12361 183951 42596";
   };
   joystick_2_joint_commands : SYSTEM interfaceview::IV::joystick_2_joint_commands::joystick_2_joint_commands.others {
-    Taste::coordinates => "173905 108951 207920 131313";
+    Taste::coordinates => "164394 117731 198409 140093";
   };
   command_dispatch : SYSTEM interfaceview::IV::command_dispatch::command_dispatch.others {
     Taste::coordinates => "88659 55904 133540 91336";
+  };
+  dumpcommands : SYSTEM interfaceview::IV::dumpcommands::dumpcommands.others {
+    Taste::coordinates => "215100 56473 254244 82447";
+  };
+  dump_motion_commands : SYSTEM interfaceview::IV::dump_motion_commands::dump_motion_commands.others {
+    Taste::coordinates => "216198 17696 253146 40377";
+  };
+  dump_joint_commands : SYSTEM interfaceview::IV::dump_joint_commands::dump_joint_commands.others {
+    Taste::coordinates => "222783 117567 260097 141345";
   };
 CONNECTIONS
   command_dispatch_PI_commands_controldevice_RI_commands : SUBPROGRAM ACCESS command_dispatch.PI_commands -> controldevice.RI_commands {
     Taste::coordinates => "54970 77229 71814 77229 71814 77006 88659 77006";
   };
-  dumpcommands_PI_commands_command_dispatch_RI_commands_out2 : SUBPROGRAM ACCESS dumpcommands.PI_commands -> command_dispatch.RI_commands_out2 {
-    Taste::coordinates => "133540 67088 181605 67088 181605 66528 229671 66528";
-  };
-  dumpcommands_PI_motion_commands_joystick_2_motion_command_RI_motion_commands : SUBPROGRAM ACCESS dumpcommands.PI_motion_commands -> joystick_2_motion_command.RI_motion_commands {
-    Taste::coordinates => "183951 22441 197624 22441 197624 60539 229671 60539";
-  };
-  dumpcommands_PI_joint_commands_joystick_2_joint_commands_RI_joint_commands : SUBPROGRAM ACCESS dumpcommands.PI_joint_commands -> joystick_2_joint_commands.RI_joint_commands {
-    Taste::coordinates => "207920 116354 219602 116354 219602 82514 229671 82514";
-  };
   joystick_2_motion_command_PI_commands_command_dispatch_RI_commands_out1 : SUBPROGRAM ACCESS joystick_2_motion_command.PI_commands -> command_dispatch.RI_commands_out1 {
     Taste::coordinates => "133540 62048 140793 62048 140793 18133 148046 18133";
   };
+  dump_motion_commands_PI_commands_joystick_2_motion_command_RI_motion_commands : SUBPROGRAM ACCESS dump_motion_commands.PI_commands -> joystick_2_motion_command.RI_motion_commands {
+    Taste::coordinates => "183951 22441 200074 22441 200074 23549 216198 23549";
+  };
   joystick_2_joint_commands_PI_commands_command_dispatch_RI_commands_out3 : SUBPROGRAM ACCESS joystick_2_joint_commands.PI_commands -> command_dispatch.RI_commands_out3 {
-    Taste::coordinates => "133540 82206 153722 82206 153722 112815 173905 112815";
+    Taste::coordinates => "133540 82206 153722 82206 153722 121595 164394 121595";
+  };
+  dump_joint_commands_PI_commands_joystick_2_joint_commands_RI_joint_commands : SUBPROGRAM ACCESS dump_joint_commands.PI_commands -> joystick_2_joint_commands.RI_joint_commands {
+    Taste::coordinates => "198409 125134 210596 125134 210596 123786 222783 123786";
+  };
+  dumpcommands_PI_commands_command_dispatch_RI_commands_out2 : SUBPROGRAM ACCESS dumpcommands.PI_commands -> command_dispatch.RI_commands_out2 {
+    Taste::coordinates => "133540 67088 174320 67088 174320 75862 215100 75862";
   };
 END interfaceview.others;
 

@@ -32,14 +32,14 @@ void joystick_2_joint_commands_PI_commands(const asn1SccJoystickCommand *IN_cmd)
 {
     /* For each axis: generate a joint command */
     unsigned i;
-    std::cout << "[joystick_2_joint_commands_PI_commands] ";
+    //std::cout << "[joystick_2_joint_commands_PI_commands] ";
     for (i = 0; i < IN_cmd->axes.elements.nCount; ++i)
     {
 	jc.names.arr[i].nCount = snprintf((char*)jc.names.arr[i].arr, maxSize_JoystickString, ("JOINT"+std::to_string(i)).c_str());
 	jc.elements.arr[i].speed = IN_cmd->axes.elements.arr[i] * joystick_2_joint_commands_ctxt.max_rotation_speed * M_PI / 180.;
-	std::cout << "JOINT" << std::to_string(i) << ": " << jc.elements.arr[i].speed << " ";
+	//std::cout << "JOINT" << std::to_string(i) << ": " << jc.elements.arr[i].speed << " ";
     }
-    std::cout << "\n";
+    //std::cout << "\n";
     jc.time.microseconds = getTimeInMicroseconds();
     jc.elements.nCount = i;
     jc.names.nCount = i;

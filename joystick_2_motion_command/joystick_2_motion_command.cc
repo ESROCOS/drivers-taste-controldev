@@ -30,7 +30,7 @@ void joystick_2_motion_command_PI_commands(const asn1SccJoystickCommand *IN_cmd)
     /* Take the first two axes and generate a motion command*/
     mc.translation = IN_cmd->axes.elements.arr[1] * joystick_2_motion_command_ctxt.max_translation_speed;
     mc.rotation = IN_cmd->axes.elements.arr[0] * joystick_2_motion_command_ctxt.max_rotation_speed * M_PI / 180.0;
-    std::cout << "[joystick_2_motion_command_PI_commands] trans: " << mc.translation << " rot: " << mc.rotation << "\n";
+    //std::cout << "[joystick_2_motion_command_PI_commands] trans: " << mc.translation << " rot: " << mc.rotation << "\n";
     joystick_2_motion_command_RI_motion_commands(&mc);
 }
 

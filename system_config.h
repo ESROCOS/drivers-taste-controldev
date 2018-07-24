@@ -5,12 +5,12 @@
 #define __NEED_JoystickCommand_NATIVE
 #define __NEED_JoystickCommand_NATIVE
 #define __NEED_Base_commands_Motion2D_NATIVE
+#define __NEED_JoystickCommand_NATIVE
 #define __NEED_Base_commands_Joints_NATIVE
+#define __NEED_JoystickCommand_NATIVE
+#define __NEED_JoystickCommand_NATIVE
+#define __NEED_JoystickCommand_NATIVE
+#define __NEED_JoystickCommand_NATIVE
 #define __NEED_JoystickCommand_NATIVE
 #define __NEED_Base_commands_Motion2D_NATIVE
-#define __NEED_JoystickCommand_NATIVE
 #define __NEED_Base_commands_Joints_NATIVE
-#define __NEED_JoystickCommand_NATIVE
-#define __NEED_JoystickCommand_NATIVE
-#define __NEED_JoystickCommand_NATIVE
-#define __NEED_JoystickCommand_NATIVE

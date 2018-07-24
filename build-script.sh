@@ -67,13 +67,17 @@ mono $(which taste-extract-asn-from-design.exe) -i "$INTERFACEVIEW" -j /tmp/dv.a
 
 cd "$SKELS" && rm -f controldevice.zip && zip controldevice controldevice/* && cd $OLDPWD
 
-cd "$SKELS" && rm -f dumpcommands.zip && zip dumpcommands dumpcommands/* && cd $OLDPWD
-
 cd "$SKELS" && rm -f joystick_2_motion_command.zip && zip joystick_2_motion_command joystick_2_motion_command/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f joystick_2_joint_commands.zip && zip joystick_2_joint_commands joystick_2_joint_commands/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f command_dispatch.zip && zip command_dispatch command_dispatch/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f dumpcommands.zip && zip dumpcommands dumpcommands/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f dump_motion_commands.zip && zip dump_motion_commands dump_motion_commands/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f dump_joint_commands.zip && zip dump_joint_commands dump_joint_commands/* && cd $OLDPWD
 
 [ ! -z "$CLEANUP" ] && rm -rf binary*
 
@@ -116,10 +120,12 @@ cd "$CWD" && assert-builder-ocarina.py \
 	--deploymentView "$DEPLOYMENTVIEW" \
 	-o "$OUTPUTDIR" \
 	--subCPP controldevice:"$SKELS"/controldevice.zip \
-	--subCPP dumpcommands:"$SKELS"/dumpcommands.zip \
 	--subCPP joystick_2_motion_command:"$SKELS"/joystick_2_motion_command.zip \
 	--subCPP joystick_2_joint_commands:"$SKELS"/joystick_2_joint_commands.zip \
 	--subCPP command_dispatch:"$SKELS"/command_dispatch.zip \
+	--subCPP dumpcommands:"$SKELS"/dumpcommands.zip \
+	--subCPP dump_motion_commands:"$SKELS"/dump_motion_commands.zip \
+	--subCPP dump_joint_commands:"$SKELS"/dump_joint_commands.zip \
 	$ORCHESTRATOR_OPTIONS
 
 if [ -f user_init_last.sh ]
