@@ -122,6 +122,12 @@ SUBCOMPONENTS
   max_translation_speed : DATA DataView::T_Double {
     Taste::FS_Default_Value => "0.01";
   };
+  translation_axis : DATA DataView::T_Int8 {
+    Taste::FS_Default_Value => "1";
+  };
+  rotation_axis : DATA DataView::T_Int8 {
+    Taste::FS_Default_Value => "0";
+  };
 END joystick_2_motion_command.others;
 
 END interfaceview::IV::joystick_2_motion_command;
@@ -182,6 +188,9 @@ SYSTEM IMPLEMENTATION joystick_2_joint_commands.others
 SUBCOMPONENTS
   max_rotation_speed : DATA DataView::T_Double {
     Taste::FS_Default_Value => "6";
+  };
+  rotation_axis : DATA DataView::T_Int8 {
+    Taste::FS_Default_Value => "2";
   };
 END joystick_2_joint_commands.others;
 

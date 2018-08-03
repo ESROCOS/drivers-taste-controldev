@@ -27,30 +27,30 @@ void joystick_2_joint_commands_startup()
     /* Write your initialization code here,
        but do not make any call to a required interface. */
     std::cout << "[joystick_2_joint_commands_startup] startup\n";
+    std::cout << "[joystick_2_joint_commands_startup]";
+    std::cout << " max_rotation_speed: " << joystick_2_joint_commands_ctxt.max_rotation_speed;
+    std::cout << " rotation_axis: " << joystick_2_joint_commands_ctxt.rotation_axis;
+    std::cout << "\n";
     std::memset(&jc, 0, sizeof(jc));
+    jc.names.nCount = 1;
+    jc.names.arr[0].nCount = snprintf((char*)jc.names.arr[0].arr, maxSize_JoystickString, "JOINT0");
+    jc.elements.nCount = 1;
+    jc.elements.arr[0].speed = 0.;
 }
 
 void joystick_2_joint_commands_PI_commands(const asn1SccJoystickCommand *IN_cmd)
 {
-    /* For each axis: generate a joint command */
-    int i;
-#ifdef DEBUG
-    std::cout << "[joystick_2_joint_commands_PI_commands] ";
-#endif
-    for (i = 0; i < IN_cmd->axes.elements.nCount; ++i)
+    /* For the specified axis: generate a joint command */
+    if (IN_cmd->axes.elements.nCount > joystick_2_joint_commands_ctxt.rotation_axis)
     {
-	jc.names.arr[i].nCount = snprintf((char*)jc.names.arr[i].arr, maxSize_JoystickString, ("JOINT"+std::to_string(i)).c_str());
-	jc.elements.arr[i].speed = IN_cmd->axes.elements.arr[i] * joystick_2_joint_commands_ctxt.max_rotation_speed * M_PI / 180.;
+	jc.elements.arr[0].speed = IN_cmd->axes.elements.arr[joystick_2_joint_commands_ctxt.rotation_axis] * joystick_2_joint_commands_ctxt.max_rotation_speed * M_PI / 180.;
+	jc.time.microseconds = getTimeInMicroseconds();
+	joystick_2_joint_commands_RI_joint_commands(&jc);
 #ifdef DEBUG
-	std::cout << "JOINT" << std::to_string(i) << ": " << jc.elements.arr[i].speed << " ";
+	std::cout << "[joystick_2_joint_commands_PI_commands] JOINT0: " << jc.elements.arr[0].speed << "\n";
 #endif
+    } else {
+	std::cout << "[joystick_2_joint_commands_PI_commands] rotation axis " << joystick_2_joint_commands_ctxt.rotation_axis << " not present\n";
     }
-#ifdef DEBUG
-    std::cout << "\n";
-#endif
-    jc.time.microseconds = getTimeInMicroseconds();
-    jc.elements.nCount = i;
-    jc.names.nCount = i;
-    joystick_2_joint_commands_RI_joint_commands(&jc);
 }
 

@@ -14,6 +14,7 @@ extern "C" {
 
 typedef struct {
     asn1SccT_Double max_rotation_speed;
+    asn1SccT_Int8 rotation_axis;
 } asn1SccContext_joystick_2_joint_commands;
 
 flag asn1SccContext_joystick_2_joint_commands_Equal(const asn1SccContext_joystick_2_joint_commands* pVal1, const asn1SccContext_joystick_2_joint_commands* pVal2);
@@ -21,6 +22,7 @@ flag asn1SccContext_joystick_2_joint_commands_Equal(const asn1SccContext_joystic
 void asn1SccContext_joystick_2_joint_commands_Initialize(asn1SccContext_joystick_2_joint_commands* pVal);
 
 #define ERR_CONTEXT_JOYSTICK_2_JOINT_COMMANDS_MAX_ROTATION_SPEED		1  /**/
+#define ERR_CONTEXT_JOYSTICK_2_JOINT_COMMANDS_ROTATION_AXIS		12  /**/
 flag asn1SccContext_joystick_2_joint_commands_IsConstraintValid(const asn1SccContext_joystick_2_joint_commands* pVal, int* pErrCode);
 
 extern const asn1SccContext_joystick_2_joint_commands joystick_2_joint_commands_ctxt; 

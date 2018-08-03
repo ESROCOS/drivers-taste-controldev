@@ -15,6 +15,8 @@ extern "C" {
 typedef struct {
     asn1SccT_Double max_rotation_speed;
     asn1SccT_Double max_translation_speed;
+    asn1SccT_Int8 translation_axis;
+    asn1SccT_Int8 rotation_axis;
 } asn1SccContext_joystick_2_motion_command;
 
 flag asn1SccContext_joystick_2_motion_command_Equal(const asn1SccContext_joystick_2_motion_command* pVal1, const asn1SccContext_joystick_2_motion_command* pVal2);
@@ -23,6 +25,8 @@ void asn1SccContext_joystick_2_motion_command_Initialize(asn1SccContext_joystick
 
 #define ERR_CONTEXT_JOYSTICK_2_MOTION_COMMAND_MAX_ROTATION_SPEED		1  /**/
 #define ERR_CONTEXT_JOYSTICK_2_MOTION_COMMAND_MAX_TRANSLATION_SPEED		12  /**/
+#define ERR_CONTEXT_JOYSTICK_2_MOTION_COMMAND_TRANSLATION_AXIS		23  /**/
+#define ERR_CONTEXT_JOYSTICK_2_MOTION_COMMAND_ROTATION_AXIS		34  /**/
 flag asn1SccContext_joystick_2_motion_command_IsConstraintValid(const asn1SccContext_joystick_2_motion_command* pVal, int* pErrCode);
 
 extern const asn1SccContext_joystick_2_motion_command joystick_2_motion_command_ctxt; 
