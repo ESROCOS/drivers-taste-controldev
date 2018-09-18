@@ -186,11 +186,17 @@ END joystick_2_joint_commands;
 
 SYSTEM IMPLEMENTATION joystick_2_joint_commands.others
 SUBCOMPONENTS
-  max_rotation_speed : DATA DataView::T_Double {
-    Taste::FS_Default_Value => "6";
+  max_rotation_position_pan : DATA DataView::T_Double {
+    Taste::FS_Default_Value => "180";
   };
-  rotation_axis : DATA DataView::T_Int8 {
+  rotation_axis_pan : DATA DataView::T_Int8 {
     Taste::FS_Default_Value => "2";
+  };
+  max_rotation_position_tilt : DATA DataView::T_Double {
+    Taste::FS_Default_Value => "45";
+  };
+  rotation_axis_tilt : DATA DataView::T_Int8 {
+    Taste::FS_Default_Value => "3";
   };
 END joystick_2_joint_commands.others;
 

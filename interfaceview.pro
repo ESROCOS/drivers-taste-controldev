@@ -80,16 +80,21 @@ isComponentType('interfaceview::IV','PUBLIC','joystick_2_motion_command','SYSTEM
 isComponentImplementation('interfaceview::IV','PUBLIC','joystick_2_motion_command','others','SYSTEM','NIL','others','').
 isProperty('NIL','=>','interfaceview::IV','joystick_2_motion_command','NIL','NIL','Source_Language','(CPP)','').
 isProperty('NIL','=>','interfaceview::IV','joystick_2_motion_command','NIL','NIL','Taste::Active_Interfaces','any','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_motion_command','NIL','NIL','Source_Text','("joystick_2_motion_command.zip")','').
 isProperty('NIL','=>','interfaceview::IV','interfaceview','others','joystick_2_motion_command','Taste::coordinates','"148046 12361 183951 42596"','').
 isSubcomponent('interfaceview::IV','interfaceview','others','joystick_2_motion_command','SYSTEM','interfaceview::IV::joystick_2_motion_command.others','NIL','NIL','').
 isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::joystick_2_motion_command','').
 isImportDeclaration('interfaceview::FV::joystick_2_motion_command','PUBLIC','Taste','').
 isImportDeclaration('interfaceview::FV::joystick_2_motion_command','PUBLIC','DataView','').
 isImportDeclaration('interfaceview::FV::joystick_2_motion_command','PUBLIC','TASTE_IV_Properties','').
-isSubcomponent('interfaceview::IV','joystick_2_joint_commands','others','max_rotation_speed','DATA','DataView::T_Double','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','max_rotation_speed','Taste::FS_Default_Value','"6"','').
-isSubcomponent('interfaceview::IV','joystick_2_joint_commands','others','rotation_axis','DATA','DataView::T_Int8','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','rotation_axis','Taste::FS_Default_Value','"2"','').
+isSubcomponent('interfaceview::IV','joystick_2_joint_commands','others','max_rotation_position_pan','DATA','DataView::T_Double','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','max_rotation_position_pan','Taste::FS_Default_Value','"180"','').
+isSubcomponent('interfaceview::IV','joystick_2_joint_commands','others','rotation_axis_pan','DATA','DataView::T_Int8','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','rotation_axis_pan','Taste::FS_Default_Value','"2"','').
+isSubcomponent('interfaceview::IV','joystick_2_joint_commands','others','max_rotation_position_tilt','DATA','DataView::T_Double','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','max_rotation_position_tilt','Taste::FS_Default_Value','"45"','').
+isSubcomponent('interfaceview::IV','joystick_2_joint_commands','others','rotation_axis_tilt','DATA','DataView::T_Int8','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','rotation_axis_tilt','Taste::FS_Default_Value','"3"','').
 isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','joystick_2_joint_commands_PI_commands_command_dispatch_RI_commands_out3','joystick_2_joint_commands.PI_commands','->','command_dispatch.RI_commands_out3','NIL','').
 isProperty('NIL','=>','interfaceview::IV','interfaceview','others','joystick_2_joint_commands_PI_commands_command_dispatch_RI_commands_out3','Taste::coordinates','"133540 82206 153722 82206 153722 121595 164394 121595"','').
 isComponentType('interfaceview::FV::joystick_2_joint_commands','PUBLIC','PI_commands','SUBPROGRAM','NIL','').
@@ -123,6 +128,7 @@ isComponentType('interfaceview::IV','PUBLIC','joystick_2_joint_commands','SYSTEM
 isComponentImplementation('interfaceview::IV','PUBLIC','joystick_2_joint_commands','others','SYSTEM','NIL','others','').
 isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','NIL','NIL','Source_Language','(CPP)','').
 isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','NIL','NIL','Taste::Active_Interfaces','any','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','NIL','NIL','Source_Text','("joystick_2_joint_commands.zip")','').
 isProperty('NIL','=>','interfaceview::IV','interfaceview','others','joystick_2_joint_commands','Taste::coordinates','"164394 117731 198409 140093"','').
 isSubcomponent('interfaceview::IV','interfaceview','others','joystick_2_joint_commands','SYSTEM','interfaceview::IV::joystick_2_joint_commands.others','NIL','NIL','').
 isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::joystick_2_joint_commands','').

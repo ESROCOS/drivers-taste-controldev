@@ -9,6 +9,8 @@
 #include <controldev/Joystick.hpp>
 #include <iostream>
 #include <cstdio>
+#include <unistd.h>
+#include <fcntl.h>
 
 #include <Context-controldevice.h>
 
@@ -32,7 +34,14 @@ void controldevice_startup()
 
 void controldevice_PI_update()
 {
-    /* Write your code here! */
+    // Check if the file descriptor is still valid
+    if (fcntl(joystick.getFileDescriptor(), F_GETFL) < 0)
+    {
+        std::cout << "[controldevice_PI_update] fcntl failed. control device removed?\n";
+        return;
+    }
+
+    // Check if the joystick has new status updates
     if (joystick.updateState())
     {
 #ifdef DEBUG
@@ -54,9 +63,9 @@ void controldevice_PI_update()
 	}
         cmd.buttons.names.nCount = i;
         cmd.buttons.elements.nCount = i;
-	controldevice_RI_commands(&cmd);
-    } else {
-	//std::cout << "[controldevice_PI_update] joystick state NOT updated\n";
     }
+
+    // Send new or last command on every update cycle
+    controldevice_RI_commands(&cmd);
 }
 
