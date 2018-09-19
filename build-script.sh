@@ -67,6 +67,8 @@ mono $(which taste-extract-asn-from-design.exe) -i "$INTERFACEVIEW" -j /tmp/dv.a
 
 cd "$SKELS" && rm -f command_dispatch.zip && zip -r command_dispatch command_dispatch/* && cd $OLDPWD || exit -1
 
+cd "$SKELS" && rm -f dump_lights.zip && zip -r dump_lights dump_lights/* && cd $OLDPWD || exit -1
+
 [ ! -z "$CLEANUP" ] && rm -rf binary*
 
 if [ -f ConcurrencyView.pro ]
@@ -114,6 +116,8 @@ cd "$CWD" && assert-builder-ocarina.py \
 	--subCPP dumpcommands:dumpcommands.zip \
 	--subCPP dump_motion_commands:dump_motion_commands.zip \
 	--subCPP dump_joint_commands:dump_joint_commands.zip \
+	--subCPP joystick_2_lights:joystick_2_lights.zip \
+	--subCPP dump_lights:"$SKELS"/dump_lights.zip \
 	$ORCHESTRATOR_OPTIONS
 
 if [ -f user_init_last.sh ]

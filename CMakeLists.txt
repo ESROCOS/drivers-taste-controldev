@@ -40,6 +40,7 @@ esrocos_add_dependency(PARTITION x86_partition
 esrocos_export_function("controldevice" "drivers/taste/controldev")
 esrocos_export_function("joystick_2_motion_command" "drivers/taste/controldev")
 esrocos_export_function("joystick_2_joint_commands" "drivers/taste/controldev")
+esrocos_export_function("joystick_2_lights" "drivers/taste/controldev")
 esrocos_export_function("dumpcommands" "drivers/taste/controldev")
 esrocos_export_function("dump_joint_commands" "drivers/taste/controldev")
 esrocos_export_function("dump_motion_commands" "drivers/taste/controldev")

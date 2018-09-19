@@ -56,7 +56,7 @@ END controldevice;
 SYSTEM IMPLEMENTATION controldevice.others
 SUBCOMPONENTS
   device_number : DATA DataView::T_UInt16 {
-    Taste::FS_Default_Value => "1";
+    Taste::FS_Default_Value => "2";
   };
 END controldevice.others;
 
@@ -186,17 +186,17 @@ END joystick_2_joint_commands;
 
 SYSTEM IMPLEMENTATION joystick_2_joint_commands.others
 SUBCOMPONENTS
-  max_rotation_position_pan : DATA DataView::T_Double {
-    Taste::FS_Default_Value => "180";
+  max_rotation_speed_pan : DATA DataView::T_Double {
+    Taste::FS_Default_Value => "20";
   };
   rotation_axis_pan : DATA DataView::T_Int8 {
-    Taste::FS_Default_Value => "2";
+    Taste::FS_Default_Value => "3";
   };
-  max_rotation_position_tilt : DATA DataView::T_Double {
-    Taste::FS_Default_Value => "45";
+  max_rotation_speed_tilt : DATA DataView::T_Double {
+    Taste::FS_Default_Value => "20";
   };
   rotation_axis_tilt : DATA DataView::T_Int8 {
-    Taste::FS_Default_Value => "3";
+    Taste::FS_Default_Value => "4";
   };
 END joystick_2_joint_commands.others;
 
@@ -208,6 +208,7 @@ PUBLIC
 WITH interfaceview::IV::joystick_2_motion_command;
 WITH interfaceview::IV::dumpcommands;
 WITH interfaceview::IV::joystick_2_joint_commands;
+WITH interfaceview::IV::joystick_2_lights;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
@@ -255,6 +256,16 @@ END RI_commands_out3;
 SUBPROGRAM IMPLEMENTATION RI_commands_out3.others
 END RI_commands_out3.others;
 
+SUBPROGRAM RI_commands_out4
+FEATURES
+  cmd : IN PARAMETER DataView::JoystickCommand {
+    Taste::encoding => NATIVE;
+  };
+END RI_commands_out4;
+
+SUBPROGRAM IMPLEMENTATION RI_commands_out4.others
+END RI_commands_out4.others;
+
 SYSTEM command_dispatch
 FEATURES
   PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::command_dispatch::PI_commands.others {
@@ -277,9 +288,15 @@ FEATURES
     Taste::labelInheritance => "false";
   };
   RI_commands_out3 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::joystick_2_joint_commands::PI_commands.others {
-    Taste::coordinates => "133540 82206";
+    Taste::coordinates => "133540 76537";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "commands_out3";
+    Taste::labelInheritance => "false";
+  };
+  RI_commands_out4 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::joystick_2_lights::PI_commands.others {
+    Taste::coordinates => "133540 84254";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "commands_out4";
     Taste::labelInheritance => "false";
   };
 PROPERTIES
@@ -412,6 +429,146 @@ END dump_joint_commands.others;
 
 END interfaceview::IV::dump_joint_commands;
 
+PACKAGE interfaceview::IV::joystick_2_lights
+PUBLIC
+
+WITH interfaceview::IV::dump_lights;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_commands
+FEATURES
+  cmd : IN PARAMETER DataView::JoystickCommand {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_commands;
+
+SUBPROGRAM IMPLEMENTATION PI_commands.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_commands.others;
+
+SUBPROGRAM RI_white_lights
+FEATURES
+  on : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+END RI_white_lights;
+
+SUBPROGRAM IMPLEMENTATION RI_white_lights.others
+END RI_white_lights.others;
+
+SUBPROGRAM RI_uv_lights
+FEATURES
+  on : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+END RI_uv_lights;
+
+SUBPROGRAM IMPLEMENTATION RI_uv_lights.others
+END RI_uv_lights.others;
+
+SYSTEM joystick_2_lights
+FEATURES
+  PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::joystick_2_lights::PI_commands.others {
+    Taste::coordinates => "164248 156217";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "commands";
+  };
+  RI_white_lights : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::dump_lights::PI_white_lights.others {
+    Taste::coordinates => "198262 153855";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "white_lights";
+    Taste::labelInheritance => "false";
+  };
+  RI_uv_lights : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::dump_lights::PI_uv_lights.others {
+    Taste::coordinates => "198262 157950";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "uv_lights";
+    Taste::labelInheritance => "false";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("joystick_2_lights.zip");
+END joystick_2_lights;
+
+SYSTEM IMPLEMENTATION joystick_2_lights.others
+SUBCOMPONENTS
+  white_light_button : DATA DataView::T_Int8 {
+    Taste::FS_Default_Value => "0";
+  };
+  uv_light_button : DATA DataView::T_Int8 {
+    Taste::FS_Default_Value => "1";
+  };
+END joystick_2_lights.others;
+
+END interfaceview::IV::joystick_2_lights;
+
+PACKAGE interfaceview::IV::dump_lights
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_white_lights
+FEATURES
+  on : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_white_lights;
+
+SUBPROGRAM IMPLEMENTATION PI_white_lights.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_white_lights.others;
+
+SUBPROGRAM PI_uv_lights
+FEATURES
+  on : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_uv_lights;
+
+SUBPROGRAM IMPLEMENTATION PI_uv_lights.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_uv_lights.others;
+
+SYSTEM dump_lights
+FEATURES
+  PI_white_lights : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::dump_lights::PI_white_lights.others {
+    Taste::coordinates => "223301 153539";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "white_lights";
+  };
+  PI_uv_lights : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::dump_lights::PI_uv_lights.others {
+    Taste::coordinates => "223301 157318";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "uv_lights";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+END dump_lights;
+
+SYSTEM IMPLEMENTATION dump_lights.others
+END dump_lights.others;
+
+END interfaceview::IV::dump_lights;
+
 PACKAGE interfaceview::IV
 PUBLIC
 
@@ -422,6 +579,8 @@ WITH interfaceview::IV::command_dispatch;
 WITH interfaceview::IV::dumpcommands;
 WITH interfaceview::IV::dump_motion_commands;
 WITH interfaceview::IV::dump_joint_commands;
+WITH interfaceview::IV::joystick_2_lights;
+WITH interfaceview::IV::dump_lights;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
@@ -454,6 +613,12 @@ SUBCOMPONENTS
   dump_joint_commands : SYSTEM interfaceview::IV::dump_joint_commands::dump_joint_commands.others {
     Taste::coordinates => "222783 117567 260097 141345";
   };
+  joystick_2_lights : SYSTEM interfaceview::IV::joystick_2_lights::joystick_2_lights.others {
+    Taste::coordinates => "164248 150390 198262 171964";
+  };
+  dump_lights : SYSTEM interfaceview::IV::dump_lights::dump_lights.others {
+    Taste::coordinates => "223301 151964 260151 172751";
+  };
 CONNECTIONS
   command_dispatch_PI_commands_controldevice_RI_commands : SUBPROGRAM ACCESS command_dispatch.PI_commands -> controldevice.RI_commands {
     Taste::coordinates => "54970 77229 71814 77229 71814 77006 88659 77006";
@@ -465,13 +630,22 @@ CONNECTIONS
     Taste::coordinates => "183951 22441 200074 22441 200074 23549 216198 23549";
   };
   joystick_2_joint_commands_PI_commands_command_dispatch_RI_commands_out3 : SUBPROGRAM ACCESS joystick_2_joint_commands.PI_commands -> command_dispatch.RI_commands_out3 {
-    Taste::coordinates => "133540 82206 153722 82206 153722 121595 164394 121595";
+    Taste::coordinates => "133540 76537 153722 76537 153722 121595 164394 121595";
   };
   dump_joint_commands_PI_commands_joystick_2_joint_commands_RI_joint_commands : SUBPROGRAM ACCESS dump_joint_commands.PI_commands -> joystick_2_joint_commands.RI_joint_commands {
     Taste::coordinates => "198409 125134 210596 125134 210596 123786 222783 123786";
   };
   dumpcommands_PI_commands_command_dispatch_RI_commands_out2 : SUBPROGRAM ACCESS dumpcommands.PI_commands -> command_dispatch.RI_commands_out2 {
     Taste::coordinates => "133540 67088 174320 67088 174320 75862 215100 75862";
+  };
+  joystick_2_lights_PI_commands_command_dispatch_RI_commands_out4 : SUBPROGRAM ACCESS joystick_2_lights.PI_commands -> command_dispatch.RI_commands_out4 {
+    Taste::coordinates => "133540 84254 148894 84254 148894 156217 164248 156217";
+  };
+  dump_lights_PI_white_lights_joystick_2_lights_RI_white_lights : SUBPROGRAM ACCESS dump_lights.PI_white_lights -> joystick_2_lights.RI_white_lights {
+    Taste::coordinates => "198262 153855 210781 153855 210781 153539 223301 153539";
+  };
+  dump_lights_PI_uv_lights_joystick_2_lights_RI_uv_lights : SUBPROGRAM ACCESS dump_lights.PI_uv_lights -> joystick_2_lights.RI_uv_lights {
+    Taste::coordinates => "198262 157950 210781 157950 210781 157318 223301 157318";
   };
 END interfaceview.others;
 

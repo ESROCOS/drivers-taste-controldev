@@ -28,8 +28,8 @@ void joystick_2_joint_commands_startup()
        but do not make any call to a required interface. */
     std::cout << "[joystick_2_joint_commands_startup] startup\n";
     std::cout << "[joystick_2_joint_commands_startup]";
-    std::cout << " max_rotation_position_pan: " << joystick_2_joint_commands_ctxt.max_rotation_position_pan;
-    std::cout << " max_rotation_position_tilt: " << joystick_2_joint_commands_ctxt.max_rotation_position_tilt;
+    std::cout << " max_rotation_speed_pan: " << joystick_2_joint_commands_ctxt.max_rotation_speed_pan;
+    std::cout << " max_rotation_speed_tilt: " << joystick_2_joint_commands_ctxt.max_rotation_speed_tilt;
     std::cout << " rotation_axis_pan: " << joystick_2_joint_commands_ctxt.rotation_axis_pan;
     std::cout << " rotation_axis_tilt: " << joystick_2_joint_commands_ctxt.rotation_axis_tilt;
     std::cout << "\n";
@@ -38,8 +38,8 @@ void joystick_2_joint_commands_startup()
     jc.names.arr[0].nCount = snprintf((char*)jc.names.arr[0].arr, maxSize_JoystickString, "PAN");
     jc.names.arr[1].nCount = snprintf((char*)jc.names.arr[1].arr, maxSize_JoystickString, "TILT");
     jc.elements.nCount = 2;
-    jc.elements.arr[0].position = 0.;
-    jc.elements.arr[1].position = 0.;
+    jc.elements.arr[0].speed = 0.;
+    jc.elements.arr[1].speed = 0.;
 }
 
 void joystick_2_joint_commands_PI_commands(const asn1SccJoystickCommand *IN_cmd)
@@ -50,9 +50,9 @@ void joystick_2_joint_commands_PI_commands(const asn1SccJoystickCommand *IN_cmd)
 	std::cout << "[joystick_2_joint_commands_PI_commands] rotation axis " << joystick_2_joint_commands_ctxt.rotation_axis_pan << " not present for PAN joint\n";
         valid = false;
     } else {
-	jc.elements.arr[0].position = IN_cmd->axes.elements.arr[joystick_2_joint_commands_ctxt.rotation_axis_pan] * joystick_2_joint_commands_ctxt.max_rotation_position_pan * M_PI / 180.;
+	jc.elements.arr[0].speed = IN_cmd->axes.elements.arr[joystick_2_joint_commands_ctxt.rotation_axis_pan] * joystick_2_joint_commands_ctxt.max_rotation_speed_pan * M_PI / 180.;
 #ifdef DEBUG
-	std::cout << "[joystick_2_joint_commands_PI_commands] PAN: " << jc.elements.arr[0].position << "\n";
+	std::cout << "[joystick_2_joint_commands_PI_commands] PAN: " << jc.elements.arr[0].speed << "\n";
 #endif
     }
     if (IN_cmd->axes.elements.nCount <= joystick_2_joint_commands_ctxt.rotation_axis_tilt)
@@ -60,9 +60,9 @@ void joystick_2_joint_commands_PI_commands(const asn1SccJoystickCommand *IN_cmd)
 	std::cout << "[joystick_2_joint_commands_PI_commands] rotation axis " << joystick_2_joint_commands_ctxt.rotation_axis_tilt << " not present for TILT joint\n";
         valid = false;
     } else {
-	jc.elements.arr[1].position = IN_cmd->axes.elements.arr[joystick_2_joint_commands_ctxt.rotation_axis_tilt] * joystick_2_joint_commands_ctxt.max_rotation_position_tilt * M_PI / 180.;
+	jc.elements.arr[1].speed = IN_cmd->axes.elements.arr[joystick_2_joint_commands_ctxt.rotation_axis_tilt] * joystick_2_joint_commands_ctxt.max_rotation_speed_tilt * M_PI / 180.;
 #ifdef DEBUG
-	std::cout << "[joystick_2_joint_commands_PI_commands] TILT: " << jc.elements.arr[1].position << "\n";
+	std::cout << "[joystick_2_joint_commands_PI_commands] TILT: " << jc.elements.arr[1].speed << "\n";
 #endif
     }
     if (valid)

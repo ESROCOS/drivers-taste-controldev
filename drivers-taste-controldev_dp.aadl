@@ -29,6 +29,8 @@ WITH interfaceview::IV::command_dispatch;
 WITH interfaceview::IV::dumpcommands;
 WITH interfaceview::IV::dump_motion_commands;
 WITH interfaceview::IV::dump_joint_commands;
+WITH interfaceview::IV::joystick_2_lights;
+WITH interfaceview::IV::dump_lights;
 WITH ocarina_processors_x86;
 WITH deploymentview::DV::Node1;
 WITH Taste;
@@ -61,6 +63,12 @@ SUBCOMPONENTS
   IV_dump_joint_commands : SYSTEM interfaceview::IV::dump_joint_commands::dump_joint_commands.others {
     Taste::FunctionName => "dump_joint_commands";
   };
+  IV_joystick_2_lights : SYSTEM interfaceview::IV::joystick_2_lights::joystick_2_lights.others {
+    Taste::FunctionName => "joystick_2_lights";
+  };
+  IV_dump_lights : SYSTEM interfaceview::IV::dump_lights::dump_lights.others {
+    Taste::FunctionName => "dump_lights";
+  };
   x86_partition : PROCESS deploymentview::DV::Node1::x86_partition.others {
     Taste::coordinates => "124948 73120 161029 103831";
     Deployment::Port_Number => 0;
@@ -76,6 +84,8 @@ PROPERTIES
   Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_dumpcommands;
   Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_dump_motion_commands;
   Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_dump_joint_commands;
+  Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_joystick_2_lights;
+  Taste::APLC_Binding => (reference (x86_partition)) APPLIES TO IV_dump_lights;
   Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO x86_partition;
 END Node1.others;
 

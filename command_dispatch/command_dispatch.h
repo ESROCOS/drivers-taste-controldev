@@ -21,6 +21,8 @@ extern void command_dispatch_RI_commands_out2(const asn1SccJoystickCommand *);
 
 extern void command_dispatch_RI_commands_out3(const asn1SccJoystickCommand *);
 
+extern void command_dispatch_RI_commands_out4(const asn1SccJoystickCommand *);
+
 #ifdef __cplusplus
 }
 #endif

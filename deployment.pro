@@ -20,6 +20,12 @@ isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','IV_dump_mot
 isSubcomponent('deploymentview::DV','Node1','others','IV_dump_joint_commands','SYSTEM','interfaceview::IV::dump_joint_commands.others','NIL','NIL','').
 isProperty('NIL','=>','deploymentview::DV','Node1','others','IV_dump_joint_commands','Taste::FunctionName','"dump_joint_commands"','').
 isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','IV_dump_joint_commands','Taste::APLC_Binding','(reference (x86_partition))','').
+isSubcomponent('deploymentview::DV','Node1','others','IV_joystick_2_lights','SYSTEM','interfaceview::IV::joystick_2_lights.others','NIL','NIL','').
+isProperty('NIL','=>','deploymentview::DV','Node1','others','IV_joystick_2_lights','Taste::FunctionName','"joystick_2_lights"','').
+isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','IV_joystick_2_lights','Taste::APLC_Binding','(reference (x86_partition))','').
+isSubcomponent('deploymentview::DV','Node1','others','IV_dump_lights','SYSTEM','interfaceview::IV::dump_lights.others','NIL','NIL','').
+isProperty('NIL','=>','deploymentview::DV','Node1','others','IV_dump_lights','Taste::FunctionName','"dump_lights"','').
+isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','IV_dump_lights','Taste::APLC_Binding','(reference (x86_partition))','').
 isComponentType('deploymentview::DV::Node1','PUBLIC','x86_partition','PROCESS','NIL','').
 isComponentImplementation('deploymentview::DV::Node1','PUBLIC','x86_partition','others','PROCESS','NIL','others','').
 isProperty('NIL','APPLIES TO','deploymentview::DV','Node1','others','x86_partition','Actual_Processor_Binding','(reference (x86_linux))','').

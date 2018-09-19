@@ -1,5 +1,5 @@
 isSubcomponent('interfaceview::IV','controldevice','others','device_number','DATA','DataView::T_UInt16','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::IV','controldevice','others','device_number','Taste::FS_Default_Value','"1"','').
+isProperty('NIL','=>','interfaceview::IV','controldevice','others','device_number','Taste::FS_Default_Value','"2"','').
 isComponentType('interfaceview::FV::controldevice','PUBLIC','PI_update','SUBPROGRAM','NIL','').
 isComponentImplementation('interfaceview::FV::controldevice','PUBLIC','PI_update','others','SUBPROGRAM','NIL','others','').
 isFeature('ACCESS','interfaceview::IV','controldevice','PI_update','PROVIDES','SUBPROGRAM','interfaceview::FV::controldevice::PI_update.others','NIL','NIL','').
@@ -87,16 +87,16 @@ isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::joystick_2_
 isImportDeclaration('interfaceview::FV::joystick_2_motion_command','PUBLIC','Taste','').
 isImportDeclaration('interfaceview::FV::joystick_2_motion_command','PUBLIC','DataView','').
 isImportDeclaration('interfaceview::FV::joystick_2_motion_command','PUBLIC','TASTE_IV_Properties','').
-isSubcomponent('interfaceview::IV','joystick_2_joint_commands','others','max_rotation_position_pan','DATA','DataView::T_Double','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','max_rotation_position_pan','Taste::FS_Default_Value','"180"','').
+isSubcomponent('interfaceview::IV','joystick_2_joint_commands','others','max_rotation_speed_pan','DATA','DataView::T_Double','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','max_rotation_speed_pan','Taste::FS_Default_Value','"20"','').
 isSubcomponent('interfaceview::IV','joystick_2_joint_commands','others','rotation_axis_pan','DATA','DataView::T_Int8','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','rotation_axis_pan','Taste::FS_Default_Value','"2"','').
-isSubcomponent('interfaceview::IV','joystick_2_joint_commands','others','max_rotation_position_tilt','DATA','DataView::T_Double','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','max_rotation_position_tilt','Taste::FS_Default_Value','"45"','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','rotation_axis_pan','Taste::FS_Default_Value','"3"','').
+isSubcomponent('interfaceview::IV','joystick_2_joint_commands','others','max_rotation_speed_tilt','DATA','DataView::T_Double','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','max_rotation_speed_tilt','Taste::FS_Default_Value','"20"','').
 isSubcomponent('interfaceview::IV','joystick_2_joint_commands','others','rotation_axis_tilt','DATA','DataView::T_Int8','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','rotation_axis_tilt','Taste::FS_Default_Value','"3"','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_joint_commands','others','rotation_axis_tilt','Taste::FS_Default_Value','"4"','').
 isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','joystick_2_joint_commands_PI_commands_command_dispatch_RI_commands_out3','joystick_2_joint_commands.PI_commands','->','command_dispatch.RI_commands_out3','NIL','').
-isProperty('NIL','=>','interfaceview::IV','interfaceview','others','joystick_2_joint_commands_PI_commands_command_dispatch_RI_commands_out3','Taste::coordinates','"133540 82206 153722 82206 153722 121595 164394 121595"','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','joystick_2_joint_commands_PI_commands_command_dispatch_RI_commands_out3','Taste::coordinates','"133540 76537 153722 76537 153722 121595 164394 121595"','').
 isComponentType('interfaceview::FV::joystick_2_joint_commands','PUBLIC','PI_commands','SUBPROGRAM','NIL','').
 isComponentImplementation('interfaceview::FV::joystick_2_joint_commands','PUBLIC','PI_commands','others','SUBPROGRAM','NIL','others','').
 isFeature('ACCESS','interfaceview::IV','joystick_2_joint_commands','PI_commands','PROVIDES','SUBPROGRAM','interfaceview::FV::joystick_2_joint_commands::PI_commands.others','NIL','NIL','').
@@ -173,12 +173,24 @@ isProperty('NIL','=>','interfaceview::FV::command_dispatch','RI_commands_out2','
 isComponentType('interfaceview::FV::command_dispatch','PUBLIC','RI_commands_out3','SUBPROGRAM','NIL','').
 isComponentImplementation('interfaceview::FV::command_dispatch','PUBLIC','RI_commands_out3','others','SUBPROGRAM','NIL','others','').
 isFeature('ACCESS','interfaceview::IV','command_dispatch','RI_commands_out3','REQUIRES','SUBPROGRAM','interfaceview::FV::joystick_2_joint_commands::PI_commands.others','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::IV','command_dispatch','NIL','RI_commands_out3','Taste::coordinates','"133540 82206"','').
+isProperty('NIL','=>','interfaceview::IV','command_dispatch','NIL','RI_commands_out3','Taste::coordinates','"133540 76537"','').
 isProperty('NIL','=>','interfaceview::IV','command_dispatch','NIL','RI_commands_out3','Taste::RCMoperationKind','any','').
 isProperty('NIL','=>','interfaceview::IV','command_dispatch','NIL','RI_commands_out3','Taste::InterfaceName','"commands_out3"','').
 isProperty('NIL','=>','interfaceview::IV','command_dispatch','NIL','RI_commands_out3','Taste::labelInheritance','"false"','').
 isFeature('PARAMETER','interfaceview::FV::command_dispatch','RI_commands_out3','cmd','IN','NIL','DataView::JoystickCommand','NIL','NIL','').
 isProperty('NIL','=>','interfaceview::FV::command_dispatch','RI_commands_out3','NIL','cmd','Taste::encoding','NATIVE','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','joystick_2_lights_PI_commands_command_dispatch_RI_commands_out4','joystick_2_lights.PI_commands','->','command_dispatch.RI_commands_out4','NIL','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','joystick_2_lights_PI_commands_command_dispatch_RI_commands_out4','Taste::coordinates','"133540 84254 148894 84254 148894 156217 164248 156217"','').
+isComponentType('interfaceview::FV::command_dispatch','PUBLIC','RI_commands_out4','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::command_dispatch','PUBLIC','RI_commands_out4','others','SUBPROGRAM','NIL','others','').
+isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::joystick_2_lights','').
+isFeature('ACCESS','interfaceview::IV','command_dispatch','RI_commands_out4','REQUIRES','SUBPROGRAM','interfaceview::FV::joystick_2_lights::PI_commands.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','command_dispatch','NIL','RI_commands_out4','Taste::coordinates','"133540 84254"','').
+isProperty('NIL','=>','interfaceview::IV','command_dispatch','NIL','RI_commands_out4','Taste::RCMoperationKind','any','').
+isProperty('NIL','=>','interfaceview::IV','command_dispatch','NIL','RI_commands_out4','Taste::InterfaceName','"commands_out4"','').
+isProperty('NIL','=>','interfaceview::IV','command_dispatch','NIL','RI_commands_out4','Taste::labelInheritance','"false"','').
+isFeature('PARAMETER','interfaceview::FV::command_dispatch','RI_commands_out4','cmd','IN','NIL','DataView::JoystickCommand','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::command_dispatch','RI_commands_out4','NIL','cmd','Taste::encoding','NATIVE','').
 isPackage('interfaceview::FV::command_dispatch','PUBLIC','').
 isComponentType('interfaceview::IV','PUBLIC','command_dispatch','SYSTEM','NIL','').
 isComponentImplementation('interfaceview::IV','PUBLIC','command_dispatch','others','SYSTEM','NIL','others','').
@@ -264,6 +276,96 @@ isSubcomponent('interfaceview::IV','interfaceview','others','dump_joint_commands
 isImportDeclaration('interfaceview::FV::dump_joint_commands','PUBLIC','Taste','').
 isImportDeclaration('interfaceview::FV::dump_joint_commands','PUBLIC','DataView','').
 isImportDeclaration('interfaceview::FV::dump_joint_commands','PUBLIC','TASTE_IV_Properties','').
+isSubcomponent('interfaceview::IV','joystick_2_lights','others','white_light_button','DATA','DataView::T_Int8','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','others','white_light_button','Taste::FS_Default_Value','"0"','').
+isSubcomponent('interfaceview::IV','joystick_2_lights','others','uv_light_button','DATA','DataView::T_Int8','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','others','uv_light_button','Taste::FS_Default_Value','"1"','').
+isComponentType('interfaceview::FV::joystick_2_lights','PUBLIC','PI_commands','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::joystick_2_lights','PUBLIC','PI_commands','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','joystick_2_lights','PI_commands','PROVIDES','SUBPROGRAM','interfaceview::FV::joystick_2_lights::PI_commands.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::joystick_2_lights','PI_commands','NIL','NIL','Taste::Associated_Queue_Size','1','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','PI_commands','Taste::coordinates','"164248 156217"','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','PI_commands','Taste::RCMoperationKind','sporadic','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','PI_commands','Taste::RCMperiod','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','PI_commands','Taste::Deadline','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','PI_commands','Taste::InterfaceName','"commands"','').
+isFeature('PARAMETER','interfaceview::FV::joystick_2_lights','PI_commands','cmd','IN','NIL','DataView::JoystickCommand','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::joystick_2_lights','PI_commands','NIL','cmd','Taste::encoding','NATIVE','').
+isProperty('NIL','=>','interfaceview::FV::joystick_2_lights','PI_commands','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
+isSubcomponent('interfaceview::IV','joystick_2_lights','others','commands_impl','SUBPROGRAM','interfaceview::FV::joystick_2_lights::PI_commands.others','NIL','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','joystick_2_lights','others','OpToPICnx_commands_impl','commands_impl','->','PI_commands','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','dump_lights_PI_white_lights_joystick_2_lights_RI_white_lights','dump_lights.PI_white_lights','->','joystick_2_lights.RI_white_lights','NIL','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','dump_lights_PI_white_lights_joystick_2_lights_RI_white_lights','Taste::coordinates','"198262 153855 210781 153855 210781 153539 223301 153539"','').
+isComponentType('interfaceview::FV::joystick_2_lights','PUBLIC','RI_white_lights','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::joystick_2_lights','PUBLIC','RI_white_lights','others','SUBPROGRAM','NIL','others','').
+isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::dump_lights','').
+isFeature('ACCESS','interfaceview::IV','joystick_2_lights','RI_white_lights','REQUIRES','SUBPROGRAM','interfaceview::FV::dump_lights::PI_white_lights.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','RI_white_lights','Taste::coordinates','"198262 153855"','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','RI_white_lights','Taste::RCMoperationKind','any','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','RI_white_lights','Taste::InterfaceName','"white_lights"','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','RI_white_lights','Taste::labelInheritance','"false"','').
+isFeature('PARAMETER','interfaceview::FV::joystick_2_lights','RI_white_lights','on','IN','NIL','DataView::T_Boolean','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::joystick_2_lights','RI_white_lights','NIL','on','Taste::encoding','NATIVE','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','dump_lights_PI_uv_lights_joystick_2_lights_RI_uv_lights','dump_lights.PI_uv_lights','->','joystick_2_lights.RI_uv_lights','NIL','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','dump_lights_PI_uv_lights_joystick_2_lights_RI_uv_lights','Taste::coordinates','"198262 157950 210781 157950 210781 157318 223301 157318"','').
+isComponentType('interfaceview::FV::joystick_2_lights','PUBLIC','RI_uv_lights','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::joystick_2_lights','PUBLIC','RI_uv_lights','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','joystick_2_lights','RI_uv_lights','REQUIRES','SUBPROGRAM','interfaceview::FV::dump_lights::PI_uv_lights.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','RI_uv_lights','Taste::coordinates','"198262 157950"','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','RI_uv_lights','Taste::RCMoperationKind','any','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','RI_uv_lights','Taste::InterfaceName','"uv_lights"','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','RI_uv_lights','Taste::labelInheritance','"false"','').
+isFeature('PARAMETER','interfaceview::FV::joystick_2_lights','RI_uv_lights','on','IN','NIL','DataView::T_Boolean','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::joystick_2_lights','RI_uv_lights','NIL','on','Taste::encoding','NATIVE','').
+isPackage('interfaceview::FV::joystick_2_lights','PUBLIC','').
+isComponentType('interfaceview::IV','PUBLIC','joystick_2_lights','SYSTEM','NIL','').
+isComponentImplementation('interfaceview::IV','PUBLIC','joystick_2_lights','others','SYSTEM','NIL','others','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','NIL','Source_Language','(CPP)','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','NIL','Taste::Active_Interfaces','any','').
+isProperty('NIL','=>','interfaceview::IV','joystick_2_lights','NIL','NIL','Source_Text','("joystick_2_lights.zip")','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','joystick_2_lights','Taste::coordinates','"164248 150390 198262 171964"','').
+isSubcomponent('interfaceview::IV','interfaceview','others','joystick_2_lights','SYSTEM','interfaceview::IV::joystick_2_lights.others','NIL','NIL','').
+isImportDeclaration('interfaceview::FV::joystick_2_lights','PUBLIC','Taste','').
+isImportDeclaration('interfaceview::FV::joystick_2_lights','PUBLIC','DataView','').
+isImportDeclaration('interfaceview::FV::joystick_2_lights','PUBLIC','TASTE_IV_Properties','').
+isComponentType('interfaceview::FV::dump_lights','PUBLIC','PI_white_lights','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::dump_lights','PUBLIC','PI_white_lights','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','dump_lights','PI_white_lights','PROVIDES','SUBPROGRAM','interfaceview::FV::dump_lights::PI_white_lights.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::dump_lights','PI_white_lights','NIL','NIL','Taste::Associated_Queue_Size','1','').
+isProperty('NIL','=>','interfaceview::IV','dump_lights','NIL','PI_white_lights','Taste::coordinates','"223301 153539"','').
+isProperty('NIL','=>','interfaceview::IV','dump_lights','NIL','PI_white_lights','Taste::RCMoperationKind','sporadic','').
+isProperty('NIL','=>','interfaceview::IV','dump_lights','NIL','PI_white_lights','Taste::RCMperiod','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','dump_lights','NIL','PI_white_lights','Taste::Deadline','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','dump_lights','NIL','PI_white_lights','Taste::InterfaceName','"white_lights"','').
+isFeature('PARAMETER','interfaceview::FV::dump_lights','PI_white_lights','on','IN','NIL','DataView::T_Boolean','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::dump_lights','PI_white_lights','NIL','on','Taste::encoding','NATIVE','').
+isProperty('NIL','=>','interfaceview::FV::dump_lights','PI_white_lights','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
+isSubcomponent('interfaceview::IV','dump_lights','others','white_lights_impl','SUBPROGRAM','interfaceview::FV::dump_lights::PI_white_lights.others','NIL','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','dump_lights','others','OpToPICnx_white_lights_impl','white_lights_impl','->','PI_white_lights','NIL','').
+isComponentType('interfaceview::FV::dump_lights','PUBLIC','PI_uv_lights','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::dump_lights','PUBLIC','PI_uv_lights','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','dump_lights','PI_uv_lights','PROVIDES','SUBPROGRAM','interfaceview::FV::dump_lights::PI_uv_lights.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::dump_lights','PI_uv_lights','NIL','NIL','Taste::Associated_Queue_Size','1','').
+isProperty('NIL','=>','interfaceview::IV','dump_lights','NIL','PI_uv_lights','Taste::coordinates','"223301 157318"','').
+isProperty('NIL','=>','interfaceview::IV','dump_lights','NIL','PI_uv_lights','Taste::RCMoperationKind','sporadic','').
+isProperty('NIL','=>','interfaceview::IV','dump_lights','NIL','PI_uv_lights','Taste::RCMperiod','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','dump_lights','NIL','PI_uv_lights','Taste::Deadline','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','dump_lights','NIL','PI_uv_lights','Taste::InterfaceName','"uv_lights"','').
+isFeature('PARAMETER','interfaceview::FV::dump_lights','PI_uv_lights','on','IN','NIL','DataView::T_Boolean','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::dump_lights','PI_uv_lights','NIL','on','Taste::encoding','NATIVE','').
+isProperty('NIL','=>','interfaceview::FV::dump_lights','PI_uv_lights','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
+isSubcomponent('interfaceview::IV','dump_lights','others','uv_lights_impl','SUBPROGRAM','interfaceview::FV::dump_lights::PI_uv_lights.others','NIL','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','dump_lights','others','OpToPICnx_uv_lights_impl','uv_lights_impl','->','PI_uv_lights','NIL','').
+isPackage('interfaceview::FV::dump_lights','PUBLIC','').
+isComponentType('interfaceview::IV','PUBLIC','dump_lights','SYSTEM','NIL','').
+isComponentImplementation('interfaceview::IV','PUBLIC','dump_lights','others','SYSTEM','NIL','others','').
+isProperty('NIL','=>','interfaceview::IV','dump_lights','NIL','NIL','Source_Language','(CPP)','').
+isProperty('NIL','=>','interfaceview::IV','dump_lights','NIL','NIL','Taste::Active_Interfaces','any','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','dump_lights','Taste::coordinates','"223301 151964 260151 172751"','').
+isSubcomponent('interfaceview::IV','interfaceview','others','dump_lights','SYSTEM','interfaceview::IV::dump_lights.others','NIL','NIL','').
+isImportDeclaration('interfaceview::FV::dump_lights','PUBLIC','Taste','').
+isImportDeclaration('interfaceview::FV::dump_lights','PUBLIC','DataView','').
+isImportDeclaration('interfaceview::FV::dump_lights','PUBLIC','TASTE_IV_Properties','').
 isProperty('_','_','_','_','_','_','LMP::Unparser_ID_Case','AsIs','').
 isProperty('_','_','_','_','_','_','LMP::Unparser_Insert_Header','Yes','').
 isPackage('interfaceview::IV','PUBLIC','').
