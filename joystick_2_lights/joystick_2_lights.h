@@ -19,6 +19,8 @@ extern void joystick_2_lights_RI_white_lights(const asn1SccT_Boolean *);
 
 extern void joystick_2_lights_RI_uv_lights(const asn1SccT_Boolean *);
 
+extern void joystick_2_lights_RI_point_turn_mode(const asn1SccT_Boolean *);
+
 #ifdef __cplusplus
 }
 #endif

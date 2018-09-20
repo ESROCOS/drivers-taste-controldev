@@ -25,3 +25,11 @@ void dump_lights_PI_uv_lights(const asn1SccT_Boolean *IN_on)
         std::cout << "UV lights off\n";
 }
 
+void dump_lights_PI_point_turn_mode(const asn1SccT_Boolean *IN_on)
+{
+    if (*IN_on)
+        std::cout << "Point turn mode on\n";
+    else
+        std::cout << "Point turn mode off\n";
+}
+

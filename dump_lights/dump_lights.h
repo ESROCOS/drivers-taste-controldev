@@ -17,6 +17,8 @@ void dump_lights_PI_white_lights(const asn1SccT_Boolean *);
 
 void dump_lights_PI_uv_lights(const asn1SccT_Boolean *);
 
+void dump_lights_PI_point_turn_mode(const asn1SccT_Boolean *);
+
 #ifdef __cplusplus
 }
 #endif

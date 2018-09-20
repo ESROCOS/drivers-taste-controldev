@@ -9,6 +9,8 @@ static bool white_lights_already_switched = false;
 static bool white_lights_on = false;
 static bool uv_lights_already_switched = false;
 static bool uv_lights_on = false;
+static bool point_turn_already_switched = false;
+static bool point_turn_on = false;
 
 void joystick_2_lights_startup()
 {
@@ -16,6 +18,7 @@ void joystick_2_lights_startup()
     std::cout << "[joystick_2_lights_startup]";
     std::cout << " white_light_button: " << joystick_2_lights_ctxt.white_light_button;
     std::cout << " uv_light_button: " << joystick_2_lights_ctxt.uv_light_button;
+    std::cout << " point_turn_button: " << joystick_2_lights_ctxt.point_turn_button;
     std::cout << std::endl;
 }
 
@@ -54,6 +57,23 @@ void joystick_2_lights_PI_commands(const asn1SccJoystickCommand *IN_cmd)
         }
         const asn1SccT_Boolean on(uv_lights_on);
         joystick_2_lights_RI_uv_lights(&on);
+    }
+    if (IN_cmd->buttons.elements.nCount <= joystick_2_lights_ctxt.point_turn_button)
+    {
+        std::cout << "[joystick_2_lights_PI_commands] Button for point turn mode does not exist\n";
+    } else {
+        if ( IN_cmd->buttons.elements.arr[joystick_2_lights_ctxt.point_turn_button] > 0)
+        {
+            if (!point_turn_already_switched)
+            {
+                point_turn_on = !point_turn_on;
+            }
+            point_turn_already_switched = true;
+        } else {
+            point_turn_already_switched = false;
+        }
+        const asn1SccT_Boolean on(point_turn_on);
+        joystick_2_lights_RI_point_turn_mode(&on);
     }
 }
 

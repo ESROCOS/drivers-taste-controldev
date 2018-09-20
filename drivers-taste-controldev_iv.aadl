@@ -470,6 +470,16 @@ END RI_uv_lights;
 SUBPROGRAM IMPLEMENTATION RI_uv_lights.others
 END RI_uv_lights.others;
 
+SUBPROGRAM RI_point_turn_mode
+FEATURES
+  on : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+END RI_point_turn_mode;
+
+SUBPROGRAM IMPLEMENTATION RI_point_turn_mode.others
+END RI_point_turn_mode.others;
+
 SYSTEM joystick_2_lights
 FEATURES
   PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::joystick_2_lights::PI_commands.others {
@@ -491,6 +501,12 @@ FEATURES
     Taste::InterfaceName => "uv_lights";
     Taste::labelInheritance => "false";
   };
+  RI_point_turn_mode : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::dump_lights::PI_point_turn_mode.others {
+    Taste::coordinates => "198262 164565";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "point_turn_mode";
+    Taste::labelInheritance => "false";
+  };
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
@@ -500,10 +516,13 @@ END joystick_2_lights;
 SYSTEM IMPLEMENTATION joystick_2_lights.others
 SUBCOMPONENTS
   white_light_button : DATA DataView::T_Int8 {
-    Taste::FS_Default_Value => "0";
+    Taste::FS_Default_Value => "5";
   };
   uv_light_button : DATA DataView::T_Int8 {
-    Taste::FS_Default_Value => "1";
+    Taste::FS_Default_Value => "7";
+  };
+  point_turn_button : DATA DataView::T_Int8 {
+    Taste::FS_Default_Value => "0";
   };
 END joystick_2_lights.others;
 
@@ -543,6 +562,20 @@ PROPERTIES
   Compute_Execution_Time => 0 ms .. 0 ms;
 END PI_uv_lights.others;
 
+SUBPROGRAM PI_point_turn_mode
+FEATURES
+  on : IN PARAMETER DataView::T_Boolean {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_point_turn_mode;
+
+SUBPROGRAM IMPLEMENTATION PI_point_turn_mode.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_point_turn_mode.others;
+
 SYSTEM dump_lights
 FEATURES
   PI_white_lights : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::dump_lights::PI_white_lights.others {
@@ -558,6 +591,13 @@ FEATURES
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "uv_lights";
+  };
+  PI_point_turn_mode : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::dump_lights::PI_point_turn_mode.others {
+    Taste::coordinates => "223301 164564";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "point_turn_mode";
   };
 PROPERTIES
   Source_Language => (CPP);
@@ -646,6 +686,9 @@ CONNECTIONS
   };
   dump_lights_PI_uv_lights_joystick_2_lights_RI_uv_lights : SUBPROGRAM ACCESS dump_lights.PI_uv_lights -> joystick_2_lights.RI_uv_lights {
     Taste::coordinates => "198262 157950 210781 157950 210781 157318 223301 157318";
+  };
+  dump_lights_PI_point_turn_mode_joystick_2_lights_RI_point_turn_mode : SUBPROGRAM ACCESS dump_lights.PI_point_turn_mode -> joystick_2_lights.RI_point_turn_mode {
+    Taste::coordinates => "198262 164565 210781 164565 210781 164564 223301 164564";
   };
 END interfaceview.others;
 

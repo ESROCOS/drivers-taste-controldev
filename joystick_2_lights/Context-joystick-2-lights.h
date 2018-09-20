@@ -16,6 +16,7 @@ extern "C" {
 typedef struct {
     asn1SccT_Int8 white_light_button;
     asn1SccT_Int8 uv_light_button;
+    asn1SccT_Int8 point_turn_button;
 
 } asn1SccContext_joystick_2_lights;
 
@@ -25,6 +26,7 @@ void asn1SccContext_joystick_2_lights_Initialize(asn1SccContext_joystick_2_light
 
 #define ERR_CONTEXT_JOYSTICK_2_LIGHTS_WHITE_LIGHT_BUTTON		1  /**/
 #define ERR_CONTEXT_JOYSTICK_2_LIGHTS_UV_LIGHT_BUTTON		12  /**/
+#define ERR_CONTEXT_JOYSTICK_2_LIGHTS_POINT_TURN_BUTTON		23  /**/
 flag asn1SccContext_joystick_2_lights_IsConstraintValid(const asn1SccContext_joystick_2_lights* pVal, int* pErrCode);
 
 extern const asn1SccContext_joystick_2_lights joystick_2_lights_ctxt; 
