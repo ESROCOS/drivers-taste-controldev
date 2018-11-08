@@ -37,13 +37,13 @@ esrocos_add_dependency(PARTITION x86_partition
 ########### FOR COMPONENT PROJECTS ################
 
 #uncomment if you want to export a function
-esrocos_export_function("controldevice" "drivers/taste/controldev")
-esrocos_export_function("joystick_2_motion_command" "drivers/taste/controldev")
-esrocos_export_function("joystick_2_joint_commands" "drivers/taste/controldev")
-esrocos_export_function("joystick_2_lights" "drivers/taste/controldev")
-esrocos_export_function("dumpcommands" "drivers/taste/controldev")
-esrocos_export_function("dump_joint_commands" "drivers/taste/controldev")
-esrocos_export_function("dump_motion_commands" "drivers/taste/controldev")
+esrocos_export_function("controldevice" "share/taste_components/controldev")
+esrocos_export_function("joystick_2_motion_command" "share/taste_components/controldev")
+esrocos_export_function("joystick_2_joint_commands" "share/taste_components/controldev")
+esrocos_export_function("joystick_2_lights" "share/taste_components/controldev")
+esrocos_export_function("dumpcommands" "share/taste_components/controldev")
+esrocos_export_function("dump_joint_commands" "share/taste_components/controldev")
+esrocos_export_function("dump_motion_commands" "share/taste_components/controldev")
 
 #uncomment to export PKG-CONFIG-file
 esrocos_export_pkgconfig( VERSION 1.0
